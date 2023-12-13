@@ -25,7 +25,7 @@
                     <div class="forget">
                         <label for=""><input type="checkbox">Remember Me  <a href="forget_pass.html">Forget Password</a></label>
                     </div>
-                    <button>Log in</button>
+                    <button class="btn btn-white btn-animated">Log in</button>
                     <div class="register">
                         <p>Don't have a account <a href="#">Register</a></p>
                     </div>
