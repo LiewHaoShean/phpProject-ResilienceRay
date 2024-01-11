@@ -1,0 +1,255 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #FDF7E4; /* Background color */
+
+}
+
+#main-container {
+    display: flex;
+    position: relative;
+    width: 80%;
+    border-radius: 30px;
+    background: #fff;
+    box-shadow: 0 0 20px #765827;
+    height: 700px;
+}
+
+#left-container {
+    flex: 1;
+    display: flex;
+    position: inherit;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAEED1; /* Background color */
+    width: 100%;
+    border-radius: 20px 0px 0px 20px;
+    overflow: hidden;
+}
+
+#right-container {
+    flex: 1;
+    background-color: #FAEED1; /* Background color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%;
+    height: 750px; */
+    padding-left: 30px;
+    border-radius: 0px 20px 20px 0px;
+}
+
+#myForm {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#myForm * {
+    margin: 8px 0;
+}
+
+.header {
+    padding-top: 20px;
+}
+
+.input-field {
+    border-radius: 55px;
+    width: 90%;
+    outline: none;
+    border: none;
+    background: #DED0B6; /* Input background color */
+}
+
+textarea {
+    outline: none;
+    border: none;
+    width: 85%; 
+    height: 47px;
+    border-radius: 55px;
+    background-color: #DED0B6;
+    padding: 15px;
+    resize: none;
+}
+
+.input-field:hover, .input-field:focus {
+    border: 3px solid #765827;
+}
+
+textarea:hover,
+textarea:focus {
+    border: 3px solid #765827;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.slider {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    animation: slide 16s infinite;
+}
+
+@keyframes slide{
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(0);
+    }
+    30% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    55% {
+        transform: translateX(-200%);
+    }
+    75% {
+        transform: translateX(-200%);
+    }
+    80% {
+        transform: translateX(-300%);
+    }
+    100% {
+        transform: translateX(-300%);
+    }
+}
+
+#registration-form {
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #FDF7E4; /* Form background color */
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+.terms input {
+    display: inline;
+}
+
+.terms label {
+    text-align: center;
+    font-size: 15px;
+}
+
+.gender-option {
+    display: flex;
+}
+
+.gender {
+    display: inline;
+    position: relative;
+    padding: 0 20px;
+}
+
+label.radio {
+    margin: 5px 20px 15px 0;
+    cursor: pointer;
+    color: grey; /* Radio button label color */
+}
+
+.gender input {
+    opacity: 0;
+}
+
+.gender-label {
+    display: block;
+}
+
+.gender-option .gender label.radio:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 6px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background: #FDF7E4; /* Radio button background color */
+}
+
+.gender input[type=radio]:checked + label:before,
+.gender label.radio:hover:before {
+    border: 2px solid #765827;
+}
+
+.gender-option .gender label.radio:after {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 14px;
+    width: 8px;
+    height: 4px;
+    border: 3px solid #765827;
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg);
+    opacity: 0;
+}
+
+.gender-option .gender input[type=radio]:checked + label:after {
+    opacity: 1;
+}
+
+.gender label:hover, .gender input[type=radio]:checked + label{
+    color: #765827;
+}
+
+button {
+    color: #fff;
+    padding: 10px 10px 10px 0px;
+    margin-bottom: 20px;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    --b: 3px;   /* border thickness */
+    --s: .45em; /* size of the corner */
+    --color: #765827;
+
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+
+    border: 0;
+
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    background-color: #DED0B6; /* Button background color */
+}
+
+button:hover,
+button:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+button:active {
+  background: var(--color);
+  color: #fff;
+}

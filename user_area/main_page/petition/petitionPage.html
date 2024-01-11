@@ -1,0 +1,119 @@
+<html lang="en" class="hydrated">
+    <head>
+        <meta charset="UTF-8"><style data-styles="">ion-icon{visibility:hidden}.hydrated{visibility:inherit}</style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="petitionPage.css">
+        <title>Resilience Ray</title>
+    </head>
+    <body>
+    <!--header section starts-->
+        <header>
+            <input type="checkbox" name="" id="toggler">
+            <label for="toggler" class="fas fa-bars"></label>
+        
+            <a href="#" class="logo">Resilience Ray</a>
+        
+            <nav class="navbar">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#donations">Donations</a>
+                <a href="#petitions">Petitions</a>
+                <a href="#events">Events</a>
+            </nav>
+        
+            <div class="search">
+                <div class="icon">
+                    <ion-icon name="search-outline" class="searchbtn md hydrated" role="img"></ion-icon>
+                </div>
+                <div class="search_bar">
+                    <input type="text" name="search" id="search" placeholder="Search Events">
+                    <ion-icon name="close-outline" class="closebtn md hydrated" role="img"></ion-icon>
+                </div>
+            </div>
+        
+            <button class="loginbtn">Log In</button>
+    
+        </header>
+
+        <div class="top-bar-wrap">
+            <div class="top-bar-grid">
+                <div class="top-bar-contact-wrap">
+                    <div class="top-bar-phone-num">
+                        <ion-icon name="call-outline"></ion-icon>
+                        <a href="">+6012 345 6789</a>
+                    </div>
+                    <div class="top-bar-gmail">
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <a href="">resilienceray@gmail.com</a>
+                    </div>
+                </div>
+                <div class="top-bar-sosial-wrap">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                    <ion-icon name="logo-facebook"></ion-icon>
+                    <ion-icon name="logo-twitter"></ion-icon>
+                    <ion-icon name="logo-pinterest"></ion-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <img src="petition.jpeg" class="image">
+            <div class="overlay">
+                <h1 class="h1">Make A Better World<br> With Your Own Hands!</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <button class="button-80" role="button" id="navigate-btn" onclick="navigateBtn()">View Petitions!</button>
+            </div>
+        </div>
+    <!--footer section starts-->
+        <section class="footer">
+            <div class="box-container">
+                <div class="box">
+                    <h3>Quick Links</h3>
+                    <a href="home#">Home</a>
+                    <a href="about#">About</a>
+                    <a href="donations#">Donations</a>
+                    <a href="petitions#">Petitions</a>
+                    <a href="events#">Events</a>
+                </div>
+        
+                <div class="box">
+                    <h3>Address</h3>
+                    <a href="#">12,217,Technology Park Malaysia, 57000 Kuala Lumpur, Federal Territory of Kuala Lumpur</a>
+                </div>
+        
+                <div class="box">
+                    <h3>Email</h3>
+                    <a href="#">resilienceray@gmail.com</a>
+                </div>
+        
+                <div class="box">
+                    <h3>Contact Info</h3>
+                    <a href="#">+03 1234 8576</a>
+                    <img src="#" alt="">
+                </div>
+        
+                <div class="credit">Created by<span> Developers of Resilience Ray </span> | All Rights Reserved</div>
+            </div>
+        </section>
+    <!--footer section ends-->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        
+        <script>
+        
+            let search = document.querySelector(".searchbtn");
+            let close = document.querySelector(".closebtn");
+            
+        
+            search.onclick = function(){
+                document.querySelector(".search").classList.toggle('active');
+            }
+        
+            close.onclick = function(){
+                document.getElementById("search").value = "";
+            }
+        </script>
+  
+    </body>
+</html>
