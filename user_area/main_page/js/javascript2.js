@@ -74,7 +74,7 @@ function toggleDonationAmountR(type) {
   }
 }
 
-function navigateBtn() {
+function navigateDonationBtn() {
   const section = document.getElementById('donation');
   section.scrollIntoView({ behavior: 'smooth' });
 }
@@ -86,4 +86,9 @@ function toggleSearchBar() {
 
 function clearSearchBar() {
   document.getElementById("search").value = "";
+}
+
+function navigatePetitionBtn() {
+  const section = document.getElementById('petition');
+  section.scrollIntoView({ behavior: 'smooth' });
 }

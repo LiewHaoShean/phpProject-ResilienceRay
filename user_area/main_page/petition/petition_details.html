@@ -1,0 +1,113 @@
+<html lang="en" class="hydrated">
+    <head>
+        <meta charset="UTF-8"><style data-styles="">ion-icon{visibility:hidden}.hydrated{visibility:inherit}</style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="petition_details.css">
+        <title>Resilience Ray</title>
+    </head>
+    <body>
+    <!--header section starts-->
+        <header>
+            <input type="checkbox" name="" id="toggler">
+            <label for="toggler" class="fas fa-bars"></label>
+        
+            <a href="#" class="logo">Resilience Ray</a>
+        
+            <nav class="navbar">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="./donation/donationPage.html">Donations</a>
+                <a href="./petition/petitionPage.html">Petitions</a>
+                <a href="#events">Events</a>
+            </nav>
+        
+            <div class="search">
+                <div class="icon">
+                    <ion-icon name="search-outline" class="searchbtn md hydrated" role="img" onclick="toggleSearchBar()"></ion-icon>
+                </div>
+                <div class="search_bar">
+                    <input type="text" name="search" id="search" placeholder="Search Events">
+                    <ion-icon name="close-outline" class="closebtn md hydrated" role="img" onclick="clearSearchBar()"></ion-icon>
+                </div>
+            </div>
+        
+            <button class="loginbtn">Log In</button>
+    
+        </header>
+    <!--header section ends-->
+        <div class="petition_details">
+            <div class="left-container">
+                <h2>Saya Gunung Raya Langkawi</h2>
+                <img src="./petition_images/petition1.jpg" alt="">
+            </div>
+            <div class="right-container">
+                <div class="petition-statistic">
+                    <div class="petition-data">
+                        <div class="petition-signs">
+                            <h2>12000</h2>
+                            <p>Signs</p>
+                        </div>
+                        <div class="petition-shares">
+                            <h2>15000</h2>
+                            <p>Shares</p>
+                        </div>
+                    </div>
+                    <div class="progress-div">
+                        <div class="progress-container">
+                            <div class="progress-bar" id="myProgressBar"></div>
+                        </div>
+                    </div>
+                    <div class="progress-bar-des">
+                        <p>7414</p>
+                        <p class="goal">Goals</p>
+                        <p>10000</p>
+                    </div>
+                    <a href=""><ion-icon name="hand-left-outline"></ion-icon> I'll Support Now!</a>
+                    <a href=""><ion-icon name="share-outline"></ion-icon> No I'll Share Instead</a>
+                </div>
+            </div>
+        </div>
+        <div class="petition-des">
+            
+        </div>
+    
+    <!--footer section starts-->
+        <section class="footer">
+            <div class="box-container">
+                <div class="box">
+                    <h3>Quick Links</h3>
+                    <a href="home#">Home</a>
+                    <a href="about#">About</a>
+                    <a href="./donation/donationPage.html">Donations</a>
+                    <a href="petitions#">Petitions</a>
+                    <a href="events#">Events</a>
+                </div>
+        
+                <div class="box">
+                    <h3>Address</h3>
+                    <a href="#">12,217,Technology Park Malaysia, 57000 Kuala Lumpur, Federal Territory of Kuala Lumpur</a>
+                </div>
+        
+                <div class="box">
+                    <h3>Email</h3>
+                    <a href="#">resilienceray@gmail.com</a>
+                </div>
+        
+                <div class="box">
+                    <h3>Contact Info</h3>
+                    <a href="#">+03 1234 8576</a>
+                    <img src="#" alt="">
+                </div>
+        
+                <div class="credit">Created by<span> Developers of Resilience Ray </span> | All Rights Reserved</div>
+            </div>
+        </section>
+    <!--footer section ends-->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  
+    </body>
+<script src="./progress-bar.js"></script>
+<script src="../js/javascript2.js"></script>
+</html>
