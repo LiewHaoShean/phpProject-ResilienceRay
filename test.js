@@ -18,3 +18,7 @@ function startProgress(targetPercentage) {
       }
     }, 50);
   }
+
+function yayy() {
+  console.log("yayy")
+}
