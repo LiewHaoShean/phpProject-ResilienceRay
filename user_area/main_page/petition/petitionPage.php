@@ -1,3 +1,9 @@
+<?php
+    include_once('../connect_sql/connect.php');
+    session_start();
+?>
+
+
 <html lang="en" class="hydrated">
     <head>
         <meta charset="UTF-8"><style data-styles="">ion-icon{visibility:hidden}.hydrated{visibility:inherit}</style>
@@ -16,8 +22,8 @@
         
             <nav class="navbar">
                 <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="../donation/donationPage.html">Donations</a>
+                <a href="../profile/profile.php">Profile</a>
+                <a href="../donation/donationPage.php">Donations</a>
                 <a href="#">Petitions</a>
                 <a href="#events">Events</a>
             </nav>
@@ -32,7 +38,13 @@
                 </div>
             </div>
         
-            <button class="loginbtn">Log In</button>
+            <?php
+                if (!isset($_SESSION['username'])){
+                    echo '<a class="loginbtn" href="../../../loginPage.php">Login</a>';
+                } else {
+                    echo '<a class="loginbtn" href="../../logout.php">Logout</a>';
+                }
+            ?>
     
         </header>
 
@@ -59,17 +71,63 @@
 
         <div class="content">
             <img src="petition.jpeg" class="image">
+            <a href="./addPetition.php"><img src="addPetitionBtn.png" alt="" class="addPetitionBtn"></a>
             <div class="overlay">
                 <h1 class="h1">Make A Better World<br> With Your Own Hands!</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 <button class="button-80" role="button" id="navigate-btn" onclick="navigatePetitionBtn()">View Petitions!</button>
             </div>
         </div>
-
         <div class="petition" id="petition">
             <h1>#Petitions</h1>
             <div class="petition-container">
-                <a href="./petition_details.html?" class="container-link">
+                <?php
+                    include_once('../../../connect_sql/connect.php');
+                    $select_query = "Select * from `petition`";
+                    $result = mysqli_query($con, $select_query);
+                    while ($row_fetch = mysqli_fetch_assoc($result)){
+                        $petitionId = $row_fetch['petitionId'];
+                        $petition_title = $row_fetch['title'];
+                        $petition_des = substr($row_fetch['description'], 0, 1000);
+                        $petition_targeted_supporters = $row_fetch['targeted_supporters'];
+                        $petition_supporters = $row_fetch['num_of_supporters'];
+                        $petition_img = $row_fetch['petition_img'];
+                        $petition_date = $row_fetch['date'];
+                        $petition_shares = $row_fetch['shares'];
+                        $plaintiffId = $row_fetch['userId'];
+                        $select_user_query = "Select * from `user` where userId=$plaintiffId";
+                        $run = mysqli_query($con, $select_user_query);
+                        $row = mysqli_fetch_assoc($run);
+                        $plaintiff_name =  $row['name'];
+                        echo "
+                            <a href='./petition_details.php?petitionId=$petitionId' class='container-link'>
+                                <div class='petition-content'>
+                                    <div class='petition-des'>
+                                        <h2>$petition_title</h2>
+                                        <p>$petition_des.......</p>
+                                    </div>
+                                    <div class='petition-statistic'>
+                                        <div class='author statistic'>
+                                            <ion-icon name='person-circle-outline'></ion-icon>
+                                            <p>$plaintiff_name</p>
+                                        </div>
+                                        <div class='supporter statistic'>
+                                            <ion-icon name='people-circle-outline'></ion-icon>
+                                            <p>$petition_supporters</p>
+                                        </div>
+                                        <div class='date statistic'>
+                                            <ion-icon name='mail-outline'></ion-icon>
+                                            <p>$petition_date</p>
+                                        </div>
+                                    </div>
+                                    <div class='petition-img'>
+                                        <img src='./petition_images/$petition_img' alt=''>
+                                    </div>
+                                </div>
+                            </a>";
+                    }
+                ?>
+                <!-- <a href="./petition_details.php?" class="container-link">
                     <div class="petition-content">
                         <div class="petition-des">
                             <h2>Save Gunung Raya Langkawi</h2>
@@ -124,7 +182,7 @@
                             <img src="./petition_images/petition2.webp" alt="">
                         </div>
                     </div>
-                </a>
+                </a> -->
             </div>
         </div>
     <!--footer section starts-->
@@ -133,7 +191,7 @@
                 <div class="box">
                     <h3>Quick Links</h3>
                     <a href="home#">Home</a>
-                    <a href="about#">About</a>
+                    <a href="about#">Profile</a>
                     <a href="donations#">Donations</a>
                     <a href="petitions#">Petitions</a>
                     <a href="events#">Events</a>

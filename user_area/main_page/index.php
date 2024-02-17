@@ -1,3 +1,8 @@
+<?php
+    include('../../connect_sql/connect.php');
+    session_start();
+?>
+
 <html lang="en" class="hydrated">
     <head>
         <meta charset="UTF-8"><style data-styles="">ion-icon{visibility:hidden}.hydrated{visibility:inherit}</style>
@@ -16,9 +21,9 @@
         
             <nav class="navbar">
                 <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="./donation/donationPage.html">Donations</a>
-                <a href="./petition/petitionPage.html">Petitions</a>
+                <a href="./profile/profile.php">Profile</a>
+                <a href="./donation/donationPage.php">Donations</a>
+                <a href="./petition/petitionPage.php">Petitions</a>
                 <a href="#events">Events</a>
             </nav>
         
@@ -31,9 +36,13 @@
                     <ion-icon name="close-outline" class="closebtn md hydrated" role="img"></ion-icon>
                 </div>
             </div>
-        
-            <button class="loginbtn">Log In</button>
-    
+            <?php
+                if (!isset($_SESSION['username'])){
+                    echo '<a class="loginbtn" href="../../loginPage.php">Login</a>';
+                } else {
+                    echo '<a class="loginbtn" href="../logout.php">Logout</a>';
+                }
+            ?>
         </header>
     <!--header section ends-->
     
@@ -65,7 +74,7 @@
                 <div class="box">
                     <h3>Quick Links</h3>
                     <a href="home#">Home</a>
-                    <a href="about#">About</a>
+                    <a href="about#">Profile</a>
                     <a href="./donation/donationPage.html">Donations</a>
                     <a href="petitions#">Petitions</a>
                     <a href="events#">Events</a>

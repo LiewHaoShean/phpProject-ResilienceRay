@@ -67,18 +67,7 @@ body {
     background: #DED0B6; /* Input background color */
 }
 
-textarea {
-    outline: none;
-    border: none;
-    width: 85%; 
-    height: 47px;
-    border-radius: 55px;
-    background-color: #DED0B6;
-    padding: 15px;
-    resize: none;
-}
-
-.input-field:hover, .input-field:focus {
+.input-field:hover, .input-field:focus{
     border: 3px solid #765827;
 }
 
@@ -140,6 +129,10 @@ input {
     box-sizing: border-box;
 }
 
+#terms {
+    margin: 0;
+}
+
 .terms input {
     display: inline;
 }
@@ -147,6 +140,7 @@ input {
 .terms label {
     text-align: center;
     font-size: 15px;
+    color: rgb(126, 126, 126);
 }
 
 .gender-option {
@@ -211,6 +205,33 @@ label.radio {
 .gender label:hover, .gender input[type=radio]:checked + label{
     color: #765827;
 }
+
+.image_box {
+    display: flex;
+    flex-direction: column;
+}
+
+.image_box #image_label {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 0;
+    margin-bottom: 8;
+    padding-left: 12px;
+    color: rgb(126, 126, 126);
+}
+
+.image_box #user_image {
+    border: none ;
+    border-radius: 55px;
+    width: 90%;
+    background: #DED0B6;
+    margin: 0;
+}
+
+.image_box #user_image:hover, .image_box #user_image:focus {
+    border: 3px solid #765827;
+}
+
 
 button {
     color: #fff;

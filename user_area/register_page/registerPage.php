@@ -17,7 +17,7 @@
             </div>
         </div>
         <div id="right-container">
-            <form id="myForm" method="post">
+            <form id="myForm" method="POST" enctype="multipart/form-data">
                 <h2 class="header">Registration Form</h2>
                 <input type="text" class="input-field" placeholder="Name" id="name" name="user_name" required >
                 <input type="number" class="input-field" placeholder="Age" id="age" name="user_age" required>
@@ -37,11 +37,15 @@
                     </div>
                 </div>
                 <input type="email" class="input-field" placeholder="Email" id="email" name="user_email" required>
-                <textarea placeholder="Address" id="address" rows="5" cols="50" required name="user_address"></textarea>
+                <input type="text" class="input-field" placeholder="Address" required name="user_address" id="address">
                 <input type="password" placeholder="Password" class="input-field" id="password" name="user_password" required>
                 <input type="password" placeholder="Confirm Password" class="input-field" id="confirmPassword" name="user_confirm_password"required>
                 <input type="tel" placeholder="Contact Number" class="input-field" id="contactNumber" name="user_contact"required>
-                <div class="terms">
+                <div class="image_box">
+                    <label for="user_image" id="image_label">User Image</label>
+                    <input id="user_image" type="file" name="userImage" required/>
+                </div>
+                <div class="terms" id="terms">
                     <input type="checkbox" id="checkbox"name="checkbox" required>
                     <label for="checkbox">I agree to Terms & Conditions</label>
                 </div>
@@ -62,8 +66,10 @@
         $user_confirm_password = $_POST['user_confirm_password'];
         $hash_password = password_hash($user_password, PASSWORD_DEFAULT);
         $user_contact = $_POST['user_contact'];
+        $user_img = $_FILES['userImage']['tmp_name'];
+        $images = file_get_contents($user_img);
 
-        if($user_name=='' or $user_age=='' or $user_gender=='' or $user_email=='' or $user_address=='' or $user_password=='' or $user_confirm_password=='' or $user_contact==''){
+        if($user_name=='' or $user_age=='' or $user_gender=='' or $user_email=='' or $user_address=='' or $user_password=='' or $user_confirm_password=='' or $user_contact=='' or $user_img=''){
             echo "<script>alert('Please fill in all the available field!')</script>";
             exit();
         }elseif($user_password !== $user_confirm_password){
@@ -76,10 +82,14 @@
             if($row_count>0){
                 echo "<script>alert('Username or gmail already exist.')</script>";
             } else {
-                $insert_query = "INSERT INTO `user` (name, age, gender, gmail, address, password, contact_num) values ('$user_name', '$user_age', '$user_gender', '$user_email', '$user_address', '$hash_password', '$user_contact')";
-                $result_query = mysqli_query($con, $insert_query);
-                if($result_query){
-                    echo "<script>alert('Data inserted successfully')</script>";
+                $insert_query = "INSERT INTO `user` (name, age, gender, gmail, address, password, contact_num, user_img) values ('$user_name', '$user_age', '$user_gender', '$user_email', '$user_address', '$hash_password', '$user_contact', ?)";
+                $stmt = mysqli_prepare($con, $insert_query);
+                mysqli_stmt_bind_param($stmt, "s", $images);
+                mysqli_stmt_execute($stmt);
+                $check = mysqli_stmt_affected_rows($stmt);
+                if($check == 1){
+                    echo "<script>alert('User registered sucessfully!')</script>";
+                    echo "<script>window.open('../../loginPage.php', '_self')</script>";
                 }
             }
         }

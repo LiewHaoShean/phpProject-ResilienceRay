@@ -1,3 +1,8 @@
+<?php
+    include('../../../connect_sql/connect.php');
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,9 +42,9 @@
     
         <nav class="navbar">
             <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#">Donations</a>
-            <a href="../petition/petitionPage.html">Petitions</a>
+            <a href="../profile/profile.php">Profile</a>
+            <a href="../donation/donationPage.php">Donations</a>
+            <a href="../petition/petitionPage.php">Petitions</a>
             <a href="#events">Events</a>
         </nav>
     
@@ -53,7 +58,13 @@
             </div>
         </div>
     
-        <button class="loginbtn">Log In</button>
+        <?php
+            if (!isset($_SESSION['username'])){
+                echo '<a class="loginbtn" href="../../../loginPage.php">Login</a>';
+            } else {
+                echo '<a class="loginbtn" href="../../logout.php">Logout</a>';
+            }
+        ?>
     </header>
 
     <section>
@@ -81,10 +92,10 @@
                             <a class="donation-amount last-container" id="hundredfifty-containerL" name="150" onclick="toggleDonationAmountL('hundredfifty'); setValue('150');"><span>MRY</span><span>150</span></a>
                         </div>
                         <div class="donation-input">
-                            <input type="number" name="selectedOption" id="selectedOption1" onclick="toggleDonationAmountL('other')" placeholder="OTHER AMOUNT (MYR)">
+                            <input type="number" name="one_off_donation_amount" id="selectedOption1" onclick="toggleDonationAmountL('other')" placeholder="OTHER AMOUNT (MYR)">
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <button class="button-55" role="button">Submit Donation</button>
+                        <button class="button-55" role="button" name="one-off-donation" type="submit">Submit Donation</button>
                     </form>
                     <script>
                         function setValue(option) {
@@ -92,6 +103,7 @@
                             console.log(option);
                         }
                     </script>
+
                     <form id="donation-form-monthly" style="display: none;" method="post">
                         <div class="donation-selection">
                             <a class="donation-amount first-container" id="fifty-containerR" name="50" onclick="toggleDonationAmountR('fifty'); setValueR('50');"><span>MRY</span><span>50</span></a>
@@ -99,10 +111,10 @@
                             <a class="donation-amount last-container" id="hundredfifty-containerR" name="150" onclick="toggleDonationAmountR('hundredfifty'); setValueR('150');"><span>MRY</span><span>150</span></a>
                         </div>
                         <div class="donation-input">
-                            <input type="number" name="selectedOption" id="selectedOption2" onclick="toggleDonationAmountR('other')" placeholder="OTHER AMOUNT (MYR)">
+                            <input type="number" name="monthly_donation_amount" id="selectedOption2" onclick="toggleDonationAmountR('other')" placeholder="OTHER AMOUNT (MYR)">
                         </div>
                         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <button class="button-55" role="button">Submit Donation</button>
+                        <button class="button-55" role="button" name="monthly-donation">Submit Donation</button>
                     </form>
                     <script>
                         function setValueR(option) {
@@ -115,19 +127,19 @@
                     <div class="data-container cross">
                         <div class="section" id="section1">
                           <div class="counter statistic" id="statistic" data-end-value="15">0</div><span>%</span>
-                          <p>Statistic 1</p>
+                          <p>Basic Needs</p>
                         </div>
                         <div class="section" id="section2">
                           <div class="counter statistic" id="statistic" data-end-value="30">0</div><span>%</span>
-                          <p>Statistic 2</p>
+                          <p>Healthcare Services</p>
                         </div>
                         <div class="section" id="section3">
                           <div class="counter statistic" id="statistic" data-end-value="25">0<span>%</span></div><span>%</span>
-                          <p>Statistic 3</p>
+                          <p>Education and Skills Development</p>
                         </div>
                         <div class="section" id="section4">
                           <div class="counter statistic" id="statistic" data-end-value="40">0<span>%</span></div><span>%</span>
-                          <p>Statistic 4</p>
+                          <p>Research and Innovation</p>
                         </div>
                     </div>
                 </div>
@@ -256,7 +268,7 @@
             <div class="box">
                 <h3>Quick Links</h3>
                 <a href="home#">Home</a>
-                <a href="about#">About</a>
+                <a href="profile#">Profile</a>
                 <a href="donations#">Donations</a>
                 <a href="petitions#">Petitions</a>
                 <a href="events#">Events</a>
@@ -287,3 +299,45 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="../js/swipper.js"></script>
 </html>
+
+<?php
+    include('../../../connect_sql/connect.php');
+    if (isset($_POST['one-off-donation'])){
+        if(!isset($_SESSION['username'])){
+            echo "<script>alert('Please proceed to login first!')</script>";
+            echo "<script>window.open('../../../loginPage.php', '_self')</script>";
+        } else {
+            $donation_type = 'one-off';
+            $user_userId = $_SESSION['userId'];
+            $donation_amount = $_POST['one_off_donation_amount'];
+            $payment_method = "pending";
+            $insert_query = "insert into `donors` (userId, amount, type, payment_method) values ('$user_userId', '$donation_amount', '$donation_type', '$payment_method')";
+            $result_query = mysqli_query($con, $insert_query);
+            $select_donorId_query = "SELECT * FROM `donors` ORDER BY donorId DESC LIMIT 1";
+            $run_select_donorId_query = mysqli_query($con, $select_donorId_query);
+            $donorId_row = mysqli_fetch_assoc($run_select_donorId_query);
+            $donorId = $donorId_row['donorId'];
+            if ($result_query){
+                echo "<script>window.open('../../payment.php?donation_amount=$donation_amount&donorId=$donorId','_self')</script>";
+            }
+        }
+    } elseif (isset($_POST['monthly-donation'])){
+        if(!isset($_SESSION['username'])){
+            echo "<script>alert('Please proceed to login first!')</script>";
+            echo "<script>window.open('../../../loginPage.php', '_self')</script>";
+        } else {
+            $donation_type = 'monthly';
+            $user_userId = $_SESSION['userId'];
+            $donation_amount = $_POST['monthly_donation_amount'];
+            $insert_query = "insert into `donors`(userId, amount, type) values ('$user_userId', '$donation_amount', '$donation_type')";
+            $result_query = mysqli_query($con, $insert_query);
+            $select_donorId_query = "SELECT * FROM `donors` ORDER BY donorId DESC LIMIT 1";
+            $run_select_donorId_query = mysqli_query($con, $select_donorId_query);
+            $donorId_row = mysqli_fetch_assoc($run_select_donorId_query);
+            $donorId = $donorId_row['donorId'];
+            if ($result_query){
+                echo "<script>window.open('../../payment.php?donation_amount=$donation_amount&donorId=$donorId','_self')</script>";
+            }
+        }
+    }
+?>

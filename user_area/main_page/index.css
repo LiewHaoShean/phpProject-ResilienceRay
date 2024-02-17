@@ -146,12 +146,16 @@ header .loginbtn{
   color:#333;
   margin-left: 40px;
   transition: 0.2s;
+  text-decoration: none;
+  padding-left: 35px;
+  padding-top: 10px;
 }
 
 header .loginbtn:hover{
   background: #eee;
   color:#ffb2d7
 }
+
 
 header #toggler{
   display: none;

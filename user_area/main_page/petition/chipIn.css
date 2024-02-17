@@ -1,0 +1,204 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none; 
+    transition: .2s linear;
+    font-family:'Ubuntu',sans-serif;
+}
+  
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+.progress-container {
+    background-color: #fffcf7;
+    height: 200px;
+    width: 100%;
+    padding: 50px;
+}
+
+.progress-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: grey;
+}
+
+.progress-steps {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 50px 500px;
+}
+
+.progress-steps .first-step {
+    width: 50px;
+    height: 50px;
+}
+
+.progress-steps .first-step ion-icon {
+    font-size: 5rem;
+    color: #1dc078;
+}
+
+.progress-steps .line {
+    border: solid 2px #1dc078;
+    width: 100px;
+    height: 0;
+}
+
+.progress-steps .second-step {
+    border-radius: 50px;
+    border: solid 2px #1dc078;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.progress-steps .second-step span {
+    position: absolute;
+    top: 7px;
+    left: 12px;
+    font-size: 2rem;
+    color: #1dc078;
+}
+
+.progress-steps .line2 {
+    border: solid 2px #dbd9db;
+    width: 100px;
+    height: 0;
+}
+
+.progress-steps .third-step {
+    border-radius: 50px;
+    border: solid 2px #dbd9db;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.progress-steps .third-step span {
+    position: absolute;
+    top: 7px;
+    left: 12px;
+    font-size: 2rem;
+    color: #dbd9db;
+}
+
+.chipIn-container {
+    background-color: #fffcf7;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chipIn-container .left-container {
+    background-color: white;
+    margin: 50px;
+    width: 500px;
+    height: 900px;
+    border-radius: 20px;
+}
+
+.chipIn-container .left-container img {
+    width: 500px;
+    object-fit: fill;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.chipIn-container .left-container h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 30px;
+}
+
+.chipIn-container .left-container p {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 15px;
+}
+
+.chipIn-container .left-container .highlight {
+    font-weight: 600;
+}
+
+.chipIn-container .left-container h3 {
+    color: red;
+}
+
+.chipIn-container .left-container .impact {
+    margin: 40px 50px 25px 50px;
+    background-color: whitesmoke;
+    padding: 15px;
+}
+
+.chipIn-container .left-container a {
+    text-decoration: none;
+    display: block;
+    border: solid 2px black;
+    width: 50%;
+    color: black;
+    border-radius: 10px;
+    margin: 15px auto;
+    height: 50px;
+    padding: 0px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.chipIn-container .left-container a ion-icon {
+    padding-right: 5px;
+}
+
+.chipIn-container .left-container a:hover {
+    color: white;
+    background-color: black;
+}
+
+.chipIn-container .left-container .share {
+    padding-top: 10px;
+}
+
+.chipIn-container .right-container {
+    width: 400px;
+    height: 900px;
+    background-color: white;
+    margin-left: 20px;
+    overflow: hidden;
+}
+
+.chipIn-container .right-container .chips {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.chipIn-container .right-container .chips-detail {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.chipIn-container .right-container .chips-detail ion-icon {
+    display: inline-block;
+    font-size: 7rem;
+    padding-right: 5px;
+}
+
+.chipIn-container .right-container .chips-detail h2 {
+    display: inline;
+    font-size: 1.8rem;
+}

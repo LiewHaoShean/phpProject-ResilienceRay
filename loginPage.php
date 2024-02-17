@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,17 +83,20 @@
     if(isset($_POST['user_login'])){
         $user_email = $_POST['user_email'];
         $user_password = $_POST['user_password'];
-
         $select_query = "Select * from `user` where gmail='$user_email'";
-        //check num_of_row to ensure the gmaail alrdy exist 
+        //check num_of_row to ensure the gmail alrdy exist 
         $results = mysqli_query($con,$select_query);
         $row_count = mysqli_num_rows($results);
         //get the gmail and pass from database
         $row_data = mysqli_fetch_assoc($results);
+        $user_username = $row_data['name'];
+        $user_userId = $row_data['userId'];
         if($row_count > 0){
             if(password_verify($user_password, $row_data['password'])){
+                $_SESSION['username'] = $user_username;
+                $_SESSION['userId'] = $user_userId;
                 echo "<script>alert('Login sucessfully!')</script>";
-                echo "<script>window.open('./user_area/main_page/index.html', '_self')</script>";
+                echo "<script>window.open('./user_area/main_page/index.php', '_self')</script>";
             } else {
                 echo "<script>alert('Invalid Credentials')</script>";
             }
@@ -107,7 +114,7 @@
         if ($row_count > 0){
             if (password_verify($org_password, $row_data['password'])){
                 echo "<script>alert('Login sucessfully!')</script>";
-                echo "<script>window.open('./user_area/main_page/index.html', '_self')</script>";
+                echo "<script>window.open('./user_area/main_page/index.php', '_self')</script>";
             } else {
                 echo "<script>alert('Invalid Credentials!')</script>";
             }

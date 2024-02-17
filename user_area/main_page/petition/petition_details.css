@@ -146,6 +146,8 @@ header .loginbtn{
   color:#333;
   margin-left: 40px;
   transition: 0.2s;
+  padding-left: 35px;
+  padding-top: 10px;
 }
 
 header .loginbtn:hover{
@@ -320,6 +322,49 @@ section{
   background-color: black;
 }
 
+.petition-des-container {
+  width: 100%;
+  padding: 20px 100px;
+
+}
+
+.petition-des-container .petition-des {
+   width: 100%;
+   border-radius: 20px;
+   background-color: whitesmoke;
+}
+
+.petition-des-container .petition-des h1 {
+  display: block;
+  font-size: 3rem;
+  text-align: center;
+  margin: 20px;
+  padding-top: 50px;
+}
+
+.petition-des-container .petition-des .author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.petition-des-container .petition-des .author ion-icon {
+  display: inline-block;
+  font-size: 8rem;
+}
+
+.petition-des-container .petition-des .author h2 {
+  display: inline-block;
+  padding-left: 20px;
+  font-size: 2rem;
+}
+
+.petition-des-container .petition-des p {
+  margin: 20px 50px;
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 50px;
+}
 /*footer*/
 .footer {
   background-color: #2e4049;
