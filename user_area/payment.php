@@ -35,7 +35,9 @@
           </div>
           <?php if(isset($_GET['donation_amount']) and isset($_GET['donorId'])){
                 $payment_amount = $_GET['donation_amount'];
-          } else {
+          } elseif(isset($_GET['chips_amount']) and isset($_GET['chipId']) and isset($_GET['petitionId'])){
+                $payment_amount = $_GET['chips_amount'];
+          }else {
                 $payment_amount = 0;
           }?>
           <div class="inputbox amount"> 
@@ -81,16 +83,24 @@
         }
     } elseif(isset($_GET['chips_amount'])){
         if(isset($_POST['visa-pay'])){
+            $chipId = $_GET['chipId'];
+            $petitionId = $_GET['petitionId'];
             $payment_method = "visa";
-            $alter_query = "Update `donors` Set payment_method='$payment_method'";
+            $alter_query = "Update `chips` Set payment_method='$payment_method' where chipId=$chipId and petitionId=$petitionId";
             $run_query = mysqli_query($con, $alter_query);
+            echo "<script>alert('You chip in successfuly!')</script>";
+            echo "<script>window.open('./main_page/petition/share_petition.php?petitionId=$petitionId', '_self')</script>";
         } elseif(isset($_POST['paypal-pay'])) {
+            $chipId = $_GET['chipId'];
+            $petitionId = $_GET['petitionId'];
             $payment_method = "paypal";
-            $alter_query = "Update `donors` Set payment_method='$payment_method'";
+            $alter_query = "Update `chips` Set payment_method='$payment_method' where chipId=$chipId and petitionId=$petitionId";
             $run_query = mysqli_query($con, $alter_query);
+            echo "<script>alert('You chip in successfuly!')</script>";
+            echo "<script>window.open('./main_page/petition/share_petition.php?petitionId=$petitionId', '_self')</script>";
         }
     } else {
-        echo "<script>alert('You don't any payment to complete!')</script>";
+        echo "<script>alert('You don't have any payment to complete!')</script>";
     }
 ?>
 

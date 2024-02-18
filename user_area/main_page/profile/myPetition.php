@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-  <h2>My donations</h2>
+  <h2>My Petitions</h2>
   <ul class="responsive-table">
     <li class="table-header">
       <div class="col">Petition Id</div>

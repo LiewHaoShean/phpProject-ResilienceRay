@@ -21,7 +21,7 @@
             <a href="#" class="logo">Resilience Ray</a>
         
             <nav class="navbar">
-                <a href="#home">Home</a>
+                <a href="../index.php">Home</a>
                 <a href="../profile/profile.php">Profile</a>
                 <a href="../donation/donationPage.php">Donations</a>
                 <a href="#">Petitions</a>

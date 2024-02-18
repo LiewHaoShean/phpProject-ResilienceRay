@@ -43,8 +43,6 @@
         <nav class="navbar">
             <a href="../index.php">Home</a>
             <a href="#">Profile</a>
-            <a href="../donation/donationPage.php">Donations</a>
-            <a href="../petition/petitionPage.php">Petitions</a>
             <a href="#events">Events</a>
         </nav>
     
@@ -59,7 +57,7 @@
         </div>
     
         <?php
-            if (!isset($_SESSION['username'])){
+            if (!isset($_SESSION['org_name'])){
                 echo '<a class="loginbtn" href="../../../loginPage.php">Login</a>';
             } else {
                 echo '<a class="loginbtn" href="../../logout.php">Logout</a>';
@@ -75,77 +73,63 @@
                 </li>
                 <li class="navbar-item">
                     <?php
-                        $session_userId = $_SESSION['userId'];
-                        $select_img_query = "Select * from `user` where userId='$session_userId'";
+                        $session_orgId = $_SESSION['orgId'];
+                        $select_img_query = "Select * from `organization` where organization_id='$session_orgId'";
                         $run_query = mysqli_query($con, $select_img_query);
                         $img_row_fetch = mysqli_fetch_assoc($run_query);
-                        $user_profile_img = $img_row_fetch['user_img'];
-                        echo "<img src=\"data:image/jpg;base64,".base64_encode($user_profile_img)."\" class='profile-img'>"
+                        $org_profile_img = $img_row_fetch['organization_img'];
+                        echo "<img class='profile-img' src='../../org_images/$org_profile_img'>"
                     ?>
                 </li>
                 <li class="navbar-item nav-name-container">
-                    <h2><?php echo $_SESSION['username'];?></h2>
+                    <h2><?php echo $_SESSION['org_name'];?></h2>
                 </li>
                 <li class="navbar-item">
-                    <a class="" href="profile.php?my_donations">My Donations</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="" href="profile.php?my_petitions">My petitions</a>
-                </li>
-                <li class="navbar-item">
-                    <a class="" href="profile.php?pending_payment">Pending Payment</a>
+                    <a class="" href="profile.php?my_donations">My Events</a>
                 </li>
                 <li class="navbar-item">
                     <a class="" href="profile.php">Edit Account</a>
                 </li>
                 <li class="navbar-item">
-                    <a class="" href="../../logout.php">Logout</a>
+                    <a class="" href="../logout.php">Logout</a>
                 </li>
             </ul>
         </div>
         <div class="profile-content">
         <?php
-            if(isset($_GET['my_donations'])){
-                include("myDonation.php");
-            }elseif(isset($_GET['my_petitions'])){
-                include("myPetition.php");
-            }elseif(isset($_GET['pending_payment'])){
-                include("myPendingPayment.php");
+            if(isset($_GET['my_events'])){
+                include("myEvents.php");
             } else {
-                if(isset($_SESSION['userId'])){
-                    $session_userId = $_SESSION['userId'];
-                    $session_username = $_SESSION['username'];
-                    $select_user_query = "Select * from `user` where userId='$session_userId' and name='$session_username'";
-                    $result_query = mysqli_query($con, $select_user_query);
+                if(isset($_SESSION['orgId'])){
+                    $session_orgId = $_SESSION['orgId'];
+                    $session_org_name = $_SESSION['org_name'];
+                    $select_org_query = "Select * from `organization` where organization_id='$session_orgId' and name='$session_org_name'";
+                    $result_query = mysqli_query($con, $select_org_query);
                     $row_fetch = mysqli_fetch_assoc($result_query);
-                    $user_age = $row_fetch['age'];
-                    $user_gender = $row_fetch['gender'];
-                    $user_email = $row_fetch['gmail'];
-                    $user_address = $row_fetch['address'];
-                    $user_contactNum = $row_fetch['contact_num'];
+                    $org_email = $row_fetch['email_address'];
+                    $org_contact = $row_fetch['contact_num'];
+                    $org_des = $row_fetch['description'];
+                    $org_address = $row_fetch['address'];
                     echo "
                         <h1>Account Details</h1>
                         <form action='' method='post' enctype='multipart/form-data' class='profile-details'>
                             <div class='name'>
-                                <input type='text' name='new_name' value='$session_username'>
+                                <input type='text' name='new_name' value='$session_org_name'>
                             </div>
-                            <div class='age'>
-                                <input type='text' name='new_age' value='$user_age'>
-                            </div>
-                            <div class='gender'>
-                                <input type='text' name='new_gender' value='$user_gender'>
-                            </div>
-                            <div class='choose-image'>
-                                <input type='file' required name='image' class='file-style'>
+                            <div class='email'>
+                                <input type='text' name='new_email' value='$org_email'>
                             </div>
                             <div class='contact_num'>
-                                <input type='text' name='new_contact_num' value='$user_contactNum'>
+                                <input type='text' name='new_contact' value='$org_contact'>
+                            </div>
+                            <div class='choose-image'>
+                                <input type='file' required name='org_image' class='file-style'>
                             </div>
                             <div class='address'>
-                                <input type='text' name='new_address' value='$user_address'>
+                                <input type='text' name='new_address' value='$org_address'>
                             </div>
-                            <div class='gmail'>
-                                <input type='text' name='new_gmail' value='$user_email'>
+                            <div class='description'>
+                                <input type='text' name='new_des' value='$org_des'>
                             </div>
                             <div class='button-container'>
                                 <button class='submit-button' type='submit' name='edit_account'>Submit</button>
@@ -154,19 +138,17 @@
                     ";
                     if(isset($_POST['edit_account'])){
                         $new_name = $_POST['new_name'];
-                        $new_age = $_POST['new_age'];
-                        $new_gender = $_POST['new_gender'];
-                        $new_contact_num = $_POST['new_contact_num'];
+                        $new_email = $_POST['new_email'];
+                        $new_contact = $_POST['new_contact'];
+                        $new_des = $_POST['new_des'];
                         $new_address = $_POST['new_address'];
-                        $new_gmail = $_POST['new_gmail'];
-                        $tmp_new_image = $_FILES['image']['tmp_name'];
-                        $new_image = file_get_contents($tmp_new_image);
-                        $alter_query = "Update `user` Set name='$new_name', age='$new_age', gender='$new_gender', gmail='$new_gmail', address='$new_address', contact_num='$new_contact_num', user_img=? where userId='$session_userId'";
-                        $stmt = mysqli_prepare($con, $alter_query);
-                        mysqli_stmt_bind_param($stmt, "s", $new_image);
-                        mysqli_stmt_execute($stmt);
-                        $check = mysqli_stmt_affected_rows($stmt);
-                        if($check ==1){
+                        $new_org_image = $_FILES['org_image']['name'];
+                        $tmp_org_img = $_FILES['org_image']['tmp_name'];
+                        move_uploaded_file($tmp_org_img, "../../org_images/$new_org_image");
+
+                        $alter_query = "Update `organization` Set name='$new_name', email_address='$new_email', address='$new_address', contact_num='$new_contact', description='$new_des', organization_img='$new_org_image' where organization_id='$session_orgId'";
+                        $result_alter_query = mysqli_query($con, $alter_query);
+                        if($result_alter_query){
                             echo "<script>alert('Account details updated successfully!')</script>";
                             echo "<script>window.open('profile.php', '_self')</script>";
                         }

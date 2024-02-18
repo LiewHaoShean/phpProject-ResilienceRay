@@ -106,15 +106,18 @@
     } elseif (isset($_POST['org_login'])){
         $org_email = $_POST['org_email'];
         $org_password = $_POST['org_password'];
-
         $select_query = "Select * from `organization` where email_address='$org_email'";
         $results = mysqli_query($con, $select_query);
         $row_count = mysqli_num_rows($results);
         $row_data = mysqli_fetch_assoc($results);
+        $org_orgId = $row_data['organization_id'];
+        $org_name = $row_data['name'];
         if ($row_count > 0){
             if (password_verify($org_password, $row_data['password'])){
+                $_SESSION['org_name'] = $org_name;
+                $_SESSION['orgId'] = $org_orgId;
                 echo "<script>alert('Login sucessfully!')</script>";
-                echo "<script>window.open('./user_area/main_page/index.php', '_self')</script>";
+                echo "<script>window.open('./org_area/main_page/index.php', '_self')</script>";
             } else {
                 echo "<script>alert('Invalid Credentials!')</script>";
             }
