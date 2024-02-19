@@ -17,8 +17,13 @@ body {
     }
   }
 
+  .table-row a#supporters {
+    color: black;
+    text-decoration: underline;
+  }
   
-  
+
+
   .responsive-table {
     li {
       border-radius: 3px;
@@ -48,36 +53,9 @@ body {
     }
     .col-3 {
       flex-basis: 25%;
+      
     }
     .col-4 {
       flex-basis: 25%;
-    }
-    
-    @media all and (max-width: 767px) {
-      .table-header {
-        display: none;
-      }
-      .table-row{
-        
-      }
-      li {
-        display: block;
-      }
-      .col {
-        
-        flex-basis: 100%;
-        
-      }
-      .col {
-        display: flex;
-        padding: 10px 0;
-        &:before {
-          color: #6C7A89;
-          padding-right: 10px;
-          content: attr(data-label);
-          flex-basis: 50%;
-          text-align: right;
-        }
-      }
     }
   }

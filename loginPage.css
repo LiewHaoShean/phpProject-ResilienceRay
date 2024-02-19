@@ -12,8 +12,8 @@ body {
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-    background-color: #FDF7E4;
-    background-image: linear-gradient(to left, #FDF7E4, #BBAB8C);
+    background-color: #E5E1DA;
+    /* background-image: linear-gradient(to left, #FDF7E4, #BBAB8C); */
 }
 
 .container {
@@ -26,7 +26,7 @@ body {
     max-width: 100%;
     background-position: center;
     background-size: cover;
-    background-color: #FAEED1;
+    background-color: #FBF9F1;
 }
 
 .container p {
@@ -235,7 +235,7 @@ button {
 }
 
 .toggle {
-    background-color: #DED0B6;
+    background-color: #F7EFE5;
     height: 100%;
     color: #fff;
     position: relative;
@@ -284,20 +284,23 @@ button {
 
 .toggle-container h1 {
     font-size: 1.5rem;
+    color: black;
 }
 
 .toggle-container .toggle-right p {
     font-size: 1.0rem;
     padding-left: 40px;
+    color: darkgrey;
 }
 
 .toggle-container .toggle-left p {
     font-size: 1.0rem;
     padding-right: 40px;
+    color: darkgrey;
 }
 
 .switch-btn {
-    background-color: #BBAB8C;
+    background-color: #9D9D9D;
   /* background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%); */
     border-radius: 40px;
     border-style: none;
@@ -320,7 +323,7 @@ button {
 }
 
 .switch-btn:hover {
-  box-shadow: rgba(117, 111, 116, 0.5) 0 1px 30px;
+  box-shadow: rgba(44, 44, 44, 0.5) 0 1px 30px;
   transition-duration: .1s;
 }
 

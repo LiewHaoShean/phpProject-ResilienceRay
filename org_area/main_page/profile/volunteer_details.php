@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="volunteer_details.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -96,71 +96,51 @@
             </ul>
         </div>
         <div class="profile-content">
-        <?php
-            if(isset($_GET['my_events'])){
-                include("myEvents.php");
-            } else {
-                if(isset($_SESSION['orgId'])){
-                    $session_orgId = $_SESSION['orgId'];
-                    $session_org_name = $_SESSION['org_name'];
-                    $select_org_query = "Select * from `organization` where organization_id='$session_orgId' and name='$session_org_name'";
-                    $result_query = mysqli_query($con, $select_org_query);
-                    $row_fetch = mysqli_fetch_assoc($result_query);
-                    $org_email = $row_fetch['email_address'];
-                    $org_contact = $row_fetch['contact_num'];
-                    $org_des = $row_fetch['description'];
-                    $org_address = $row_fetch['address'];
-                    echo "
-                        <h1>Account Details</h1>
-                        <form action='' method='post' enctype='multipart/form-data' class='profile-details'>
-                            <div class='name'>
-                                <input type='text' name='new_name' value='$session_org_name'>
-                            </div>
-                            <div class='email'>
-                                <input type='text' name='new_email' value='$org_email'>
-                            </div>
-                            <div class='contact_num'>
-                                <input type='text' name='new_contact' value='$org_contact'>
-                            </div>
-                            <div class='choose-image'>
-                                <input type='file' required name='org_image' class='file-style'>
-                            </div>
-                            <div class='address'>
-                                <input type='text' name='new_address' value='$org_address'>
-                            </div>
-                            <div class='description'>
-                                <input type='text' name='new_des' value='$org_des'>
-                            </div>
-                            <div class='button-container'>
-                                <button class='submit-button' type='submit' name='edit_account'>Submit</button>
-                            </div>
-                        </form>
-                    ";
-                    if(isset($_POST['edit_account'])){
-                        $new_name = $_POST['new_name'];
-                        $new_email = $_POST['new_email'];
-                        $new_contact = $_POST['new_contact'];
-                        $new_des = $_POST['new_des'];
-                        $new_address = $_POST['new_address'];
-                        $new_org_image = $_FILES['org_image']['name'];
-                        $tmp_org_img = $_FILES['org_image']['tmp_name'];
-                        move_uploaded_file($tmp_org_img, "../../org_images/$new_org_image");
+            <div class="container">
+            <h2>Event's Volunteeers</h2>
+            <ul class="responsive-table">
+                <li class="table-header">
+                <div class="col col-1">VolunteerId</div>
+                <div class="col col-2">Name</div>
+                <div class="col col-3">Gender</div>
+                <div class="col col-4">Age</div>
+                <div class="col col-5">Email</div>
+                <div class="col col-6">Contact Number</div>
+                </li>
+                <?php
+                    if(isset($_GET['activityId'])){
+                        $activityId = $_GET['activityId'];
+                        $select_volunteer_query = "Select * from `volunteer` where activityId='$activityId'";
+                        $run_select_volunteer_query = mysqli_query($con, $select_volunteer_query);
+                        while($volunteer_result_query = mysqli_fetch_assoc($run_select_volunteer_query)){
+                            $userId = $volunteer_result_query['userId'];
+                            $volunteerId = $volunteer_result_query['volunteerId'];
+                            $select_user_query = "Select * from `user` where userId=$userId";
+                            $run_select_user_query = mysqli_query($con, $select_user_query);
+                            while ($user_result_query = mysqli_fetch_assoc($run_select_user_query)) {
+                                $user_name = $user_result_query['name'];
+                                $user_gender = $user_result_query['gender'];
+                                $user_age = $user_result_query['age'];
+                                $user_email = $user_result_query['gmail'];
+                                $user_contact = $user_result_query['contact_num'];
+                                echo "
+                                    <li class='table-row'>
+                                        <div class='col col-1' data-label='Volunteer Id'><h3>$volunteerId</h3></div>
+                                        <div class='col col-2' data-label='Volunteer Name'><h3>$user_name</h3></div>
+                                        <div class='col col-3' data-label='Volunteer Gender'><h3>$user_gender</h3></div>
+                                        <div class='col col-4' data-label='Volunteer Age'><h3>$user_age</h3></div>
+                                        <div class='col col-5' data-label='Volunteer Email'><h3>$user_email</h3></div>
+                                        <div class='col col-6' data-label='Volunteer Contact'><h3>$user_contact</h3></div>
+                                    </li>";
+                            }
 
-                        $alter_query = "Update `organization` Set name='$new_name', email_address='$new_email', address='$new_address', contact_num='$new_contact', description='$new_des', organization_img='$new_org_image' where organization_id='$session_orgId'";
-                        $result_alter_query = mysqli_query($con, $alter_query);
-                        if($result_alter_query){
-                            echo "<script>alert('Account details updated successfully!')</script>";
-                            echo "<script>window.open('profile.php', '_self')</script>";
                         }
                     }
-                } else {
-                    echo "<script>alert('Please proceed to login first!')</script>";
-                    echo "<script>window.open('../../../loginPage.php', '_self')</script>";
-                }
-            }
-        ?> 
+                ?>
+            </ul>
+    </div> 
+            </div>
         </div>
-    </div>
 
     <section class="footer">
         <div class="box-container">

@@ -33,10 +33,10 @@
             $payment_method = $result['payment_method'];
             echo "
                 <li class='table-row'>
-                    <div class='col' data-label='Activity Id'><h3>$donorId</h3></div>
-                    <div class='col' data-label='Activity Type'><h3>$activity_type</h3></div>
-                    <div class='col' data-label='Amount'><h3>$$donation_amount</h3></div>
-                    <div class='col' data-label='Payment Method'><h3><a href='../../payment.php?donation_amount=$donation_amount?&donorId=$donorId'' id='pending'>$payment_method</a></h3></div>
+                    <div class='col col-1' data-label='Activity Id'><h3>$donorId</h3></div>
+                    <div class='col col-2' data-label='Activity Type'><h3>$activity_type</h3></div>
+                    <div class='col col-3' data-label='Amount'><h3>$$donation_amount</h3></div>
+                    <div class='col col-4' data-label='Payment Method'><h3><a href='../../payment.php?donation_amount=$donation_amount?&donorId=$donorId'' id='pending'>$payment_method</a></h3></div>
                 </li>";
         };
         $select_chips_query = "Select * from `chips` where userId=$session_userId and payment_method='pending'";
@@ -49,10 +49,10 @@
           $payment_method = $chips_result['payment_method'];
           echo "
                 <li class='table-row'>
-                    <div class='col' data-label='Activity Id'><h3>$chipsId</h3></div>
-                    <div class='col' data-label='Activity Type'><h3>$activity_type</h3></div>
-                    <div class='col' data-label='Amount'><h3>$$chips_amount</h3></div>
-                    <div class='col' data-label='Payment Method'><h3><a href='../../payment.php?chips_amount=$chips_amount&chipId=$chipsId&petitionId=$petition_id' id='pending'>$payment_method</a></h3></div>
+                    <div class='col col-1' data-label='Activity Id'><h3>$chipsId</h3></div>
+                    <div class='col col-2' data-label='Activity Type'><h3>$activity_type</h3></div>
+                    <div class='col col-3' data-label='Amount'><h3>$$chips_amount</h3></div>
+                    <div class='col col-4' data-label='Payment Method'><h3><a href='../../payment.php?chips_amount=$chips_amount&chipId=$chipsId&petitionId=$petition_id' id='pending'>$payment_method</a></h3></div>
                 </li>";
         };
     ?>

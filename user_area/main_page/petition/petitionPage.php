@@ -73,8 +73,8 @@
             <img src="petition.jpeg" class="image">
             <a href="./addPetition.php"><img src="addPetitionBtn.png" alt="" class="addPetitionBtn"></a>
             <div class="overlay">
-                <h1 class="h1">Make A Better World<br> With Your Own Hands!</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <h1 class="h1">Support Causes<br>You Care About</h1>
+                <p>Looking to make a difference? Explore these petition websites that allow you to contribute to various causes through donations.Whether you're passionate about human rights, animal welfare, or environmental sustainability, these websites provide a platform for you to make an impact and support the issues you care about most. Join the movement for change today by donating to petitions on these platforms.</p>
                 <button class="button-80" role="button" id="navigate-btn" onclick="navigatePetitionBtn()">View Petitions!</button>
             </div>
         </div>

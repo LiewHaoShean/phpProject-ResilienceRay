@@ -11,10 +11,10 @@
   <h2>My Donations</h2>
   <ul class="responsive-table">
     <li class="table-header">
-      <div class="col">Donation Id</div>
-      <div class="col">Donation Type</div>
-      <div class="col">Amount Due</div>
-      <div class="col">Payment Method</div>
+      <div class="col col-1">Donation Id</div>
+      <div class="col col-2">Donation Type</div>
+      <div class="col col-3">Amount Due</div>
+      <div class="col col-4">Payment Method</div>
     </li>
     <!-- <li class="table-row">
       <div class="col" data-label="Donation Id">42235</div>
@@ -33,10 +33,10 @@
             $payment_method = $result['payment_method'];
             echo "
                 <li class='table-row'>
-                    <div class='col' data-label='Donation Id'><h3>$donorId</h3></div>
-                    <div class='col' data-label='Donation Type'><h3>$donation_type</h3></div>
-                    <div class='col' data-label='Amount'><h3>$$donation_amount</h3></div>
-                    <div class='col' data-label='Payment Method'><h3>$payment_method</h3></div>
+                    <div class='col col-1' data-label='Donation Id'><h3>$donorId</h3></div>
+                    <div class='col col-2' data-label='Donation Type'><h3>$donation_type</h3></div>
+                    <div class='col col-3' data-label='Amount'><h3>$$donation_amount</h3></div>
+                    <div class='col col-4' data-label='Payment Method'><h3>$payment_method</h3></div>
                 </li>";
         }
     ?>

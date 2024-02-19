@@ -11,10 +11,10 @@
   <h2>My Petitions</h2>
   <ul class="responsive-table">
     <li class="table-header">
-      <div class="col">Petition Id</div>
-      <div class="col">Title</div>
-      <div class="col">Date</div>
-      <div class="col">Suppoters</div>
+      <div class="col col-1">Petition Id</div>
+      <div class="col col-2">Title</div>
+      <div class="col col-3">Date</div>
+      <div class="col col-4">Suppoters</div>
     </li>
     <?php
         $session_userId = $_SESSION['userId'];
@@ -27,10 +27,10 @@
             $petition_supporters = $result['num_of_supporters'];
             echo "
                 <li class='table-row'>
-                    <div class='col' data-label='Donation Id'><h3>$petitionId</h3></div>
-                    <div class='col' data-label='Donation Type'><h3>$petition_title</h3></div>
-                    <div class='col' data-label='Amount'><h3>$petition_date</h3></div>
-                    <div class='col' data-label='Payment Method'><h3>$petition_supporters</h3></div>
+                    <div class='col col-1' data-label='Donation Id'><h3>$petitionId</h3></div>
+                    <div class='col col-2' data-label='Donation Type'><h3>$petition_title</h3></div>
+                    <div class='col col-3' data-label='Amount'><h3>$petition_date</h3></div>
+                    <div class='col col-4' data-label='Payment Method'><h3>$petition_supporters</h3></div>
                 </li>";
         }
     ?>

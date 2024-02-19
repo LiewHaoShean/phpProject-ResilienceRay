@@ -1,8 +1,3 @@
-<?php
-    include('../../../connect_sql/connect.php');
-    session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,10 +36,10 @@
         <a href="#" class="logo">Resilience Ray</a>
     
         <nav class="navbar">
-            <a href="../index.php">Home</a>
-            <a href="../profile/profile.php">Profile</a>
-            <a href="../donation/donationPage.php">Donations</a>
-            <a href="../petition/petitionPage.php">Petitions</a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#">Donations</a>
+            <a href="../petition/petitionPage.html">Petitions</a>
             <a href="#events">Events</a>
         </nav>
     
@@ -58,20 +53,14 @@
             </div>
         </div>
     
-        <?php
-            if (!isset($_SESSION['username'])){
-                echo '<a class="loginbtn" href="../../../loginPage.php">Login</a>';
-            } else {
-                echo '<a class="loginbtn" href="../../logout.php">Logout</a>';
-            }
-        ?>
+        <button class="loginbtn">Log In</button>
     </header>
 
     <section>
         <div class="content">
             <img src="./donation.jpeg" class="image">
             <div class="overlay">
-                <h1 class="h1">Make a difference<br> today.</h1>
+                <h1 class="h1">Make a difference today.</h1>
                 <p>Welcome to "Resilience Ray," a platform dedicated to making a positive impact in the world. Your contribution, big or small, can transform lives and communities. Join us in our mission to spread hope, support, and resources where they're needed most.Together, let's create a brighter future for all. Donate now and be the change you wish to see in the world!</p>
                 <button class="button-80" role="button" id="navigate-btn" onclick="navigateDonationBtn()">Donate Now!</button>
             </div>
@@ -92,10 +81,10 @@
                             <a class="donation-amount last-container" id="hundredfifty-containerL" name="150" onclick="toggleDonationAmountL('hundredfifty'); setValue('150');"><span>MRY</span><span>150</span></a>
                         </div>
                         <div class="donation-input">
-                            <input type="number" name="one_off_donation_amount" id="selectedOption1" onclick="toggleDonationAmountL('other')" placeholder="OTHER AMOUNT (MYR)">
+                            <input type="number" name="selectedOption" id="selectedOption1" onclick="toggleDonationAmountL('other')" placeholder="OTHER AMOUNT (MYR)">
                         </div>
-                        <p>"Your single donation today creates ripples of change that touch countless lives tomorrow."</p>
-                        <button class="button-55" role="button" name="one-off-donation" type="submit">Submit Donation</button>
+                        <p>Your donation fuels hope and transforms lives. Join us in making a difference today.</p>
+                        <button class="button-55" role="button">Submit Donation</button>
                     </form>
                     <script>
                         function setValue(option) {
@@ -103,7 +92,6 @@
                             console.log(option);
                         }
                     </script>
-
                     <form id="donation-form-monthly" style="display: none;" method="post">
                         <div class="donation-selection">
                             <a class="donation-amount first-container" id="fifty-containerR" name="50" onclick="toggleDonationAmountR('fifty'); setValueR('50');"><span>MRY</span><span>50</span></a>
@@ -111,10 +99,10 @@
                             <a class="donation-amount last-container" id="hundredfifty-containerR" name="150" onclick="toggleDonationAmountR('hundredfifty'); setValueR('150');"><span>MRY</span><span>150</span></a>
                         </div>
                         <div class="donation-input">
-                            <input type="number" name="monthly_donation_amount" id="selectedOption2" onclick="toggleDonationAmountR('other')" placeholder="OTHER AMOUNT (MYR)">
+                            <input type="number" name="selectedOption" id="selectedOption2" onclick="toggleDonationAmountR('other')" placeholder="OTHER AMOUNT (MYR)">
                         </div>
-                        <p>"Transform lives every month with a recurring donation. Together, we can build a brighter future for all."</p>
-                        <button class="button-55" role="button" name="monthly-donation">Submit Donation</button>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <button class="button-55" role="button">Submit Donation</button>
                     </form>
                     <script>
                         function setValueR(option) {
@@ -127,19 +115,19 @@
                     <div class="data-container cross">
                         <div class="section" id="section1">
                           <div class="counter statistic" id="statistic" data-end-value="15">0</div><span>%</span>
-                          <p>Basic Needs</p>
+                          <p>Education Empowerment</p>
                         </div>
                         <div class="section" id="section2">
                           <div class="counter statistic" id="statistic" data-end-value="30">0</div><span>%</span>
-                          <p>Healthcare Services</p>
+                          <p>Healthcare Access</p>
                         </div>
                         <div class="section" id="section3">
                           <div class="counter statistic" id="statistic" data-end-value="25">0<span>%</span></div><span>%</span>
-                          <p>Education and Skills Development</p>
+                          <p>Environmental Conservation</p>
                         </div>
                         <div class="section" id="section4">
                           <div class="counter statistic" id="statistic" data-end-value="40">0<span>%</span></div><span>%</span>
-                          <p>Research and Innovation</p>
+                          <p>Emergency Relief</p>
                         </div>
                     </div>
                 </div>
@@ -179,7 +167,7 @@
                             <div class="card swiper-slide">
                                 <div class="image-content">
                                     <div class="card-image">
-                                        <img src="potraits/emma.jpg" alt="" class="card-img">
+                                        <img src="potraits/donor1.jpeg" alt="" class="card-img">
                                         <div class="card-header">
                                             <h2>Emma Sanchez</h2>
                                             <p>A dedicated nurse with over a decade experience.</p>
@@ -194,10 +182,10 @@
                             <div class="card swiper-slide">
                                 <div class="image-content">
                                     <div class="card-image">
-                                        <img src="potraits/donor2.jpg" alt="" class="card-img">
+                                        <img src="potraits/donor1.jpeg" alt="" class="card-img">
                                         <div class="card-header">
                                             <h2>Michael Johnson</h2>
-                                            <p>A 15 years of experience in investment banking.</p>
+                                            <p>A 15 years of experience in investment banking</p>
                                             <p>Donor for 6 years.</p>
                                         </div>
                                     </div>
@@ -209,7 +197,7 @@
                             <div class="card swiper-slide">
                                 <div class="image-content">
                                     <div class="card-image">
-                                        <img src="potraits/sophia.jpg" alt="" class="card-img">
+                                        <img src="potraits/donor1.jpeg" alt="" class="card-img">
                                         <div class="card-header">
                                             <h2>Sophia Patel</h2>
                                             <p>A seasoned environmental scientist</p>
@@ -224,7 +212,7 @@
                             <div class="card swiper-slide">
                                 <div class="image-content">
                                     <div class="card-image">
-                                        <img src="potraits/david.jpg" alt="" class="card-img">
+                                        <img src="potraits/donor1.jpeg" alt="" class="card-img">
                                         <div class="card-header">
                                             <h2>David Chen</h2>
                                             <p>A seasoned software engineer with over a decade experience</p>
@@ -239,19 +227,13 @@
                             <div class="card swiper-slide">
                                 <div class="image-content">
                                     <div class="card-image">
-                                        <img src="potraits/rajesh.jpg" alt="" class="card-img">
+                                        <img src="potraits/donor1.jpeg" alt="" class="card-img">
                                         <div class="card-header">
                                             <h2>Rajesh Sharma</h2>
                                             <p>A successful entrepreneur with a background real estate development</p>
                                             <p>Donor for 8 years.</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card-content">
-                                    <p class="description">Rajesh is a successful entrepreneur with a background in real estate development. He has over 15 years of experience in the industry, overseeing projects ranging from residential complexes to commercial buildings. Rajesh believes in the importance of community development and donates to initiatives that focus on poverty alleviation, sustainable development, and infrastructure improvement in underprivileged areas, aiming to create thriving and inclusive communities.</p>
-                                </div>
-                            </div>
-                        </div>
                         <div class="swiper-button-next" style="color: black;"></div>
                         <div class="swiper-button-prev" style="color: black;"></div>
                         <div class="swiper-pagination" style="--swiper-theme-color: black"></div>
@@ -271,7 +253,7 @@
             <div class="box">
                 <h3>Quick Links</h3>
                 <a href="home#">Home</a>
-                <a href="profile#">Profile</a>
+                <a href="about#">About</a>
                 <a href="donations#">Donations</a>
                 <a href="petitions#">Petitions</a>
                 <a href="events#">Events</a>
@@ -302,45 +284,3 @@
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="../js/swipper.js"></script>
 </html>
-
-<?php
-    include('../../../connect_sql/connect.php');
-    if (isset($_POST['one-off-donation'])){
-        if(!isset($_SESSION['username'])){
-            echo "<script>alert('Please proceed to login first!')</script>";
-            echo "<script>window.open('../../../loginPage.php', '_self')</script>";
-        } else {
-            $donation_type = 'one-off';
-            $user_userId = $_SESSION['userId'];
-            $donation_amount = $_POST['one_off_donation_amount'];
-            $payment_method = "pending";
-            $insert_query = "insert into `donors` (userId, amount, type, payment_method) values ('$user_userId', '$donation_amount', '$donation_type', '$payment_method')";
-            $result_query = mysqli_query($con, $insert_query);
-            $select_donorId_query = "SELECT * FROM `donors` ORDER BY donorId DESC LIMIT 1";
-            $run_select_donorId_query = mysqli_query($con, $select_donorId_query);
-            $donorId_row = mysqli_fetch_assoc($run_select_donorId_query);
-            $donorId = $donorId_row['donorId'];
-            if ($result_query){
-                echo "<script>window.open('../../payment.php?donation_amount=$donation_amount&donorId=$donorId','_self')</script>";
-            }
-        }
-    } elseif (isset($_POST['monthly-donation'])){
-        if(!isset($_SESSION['username'])){
-            echo "<script>alert('Please proceed to login first!')</script>";
-            echo "<script>window.open('../../../loginPage.php', '_self')</script>";
-        } else {
-            $donation_type = 'monthly';
-            $user_userId = $_SESSION['userId'];
-            $donation_amount = $_POST['monthly_donation_amount'];
-            $insert_query = "insert into `donors`(userId, amount, type) values ('$user_userId', '$donation_amount', '$donation_type')";
-            $result_query = mysqli_query($con, $insert_query);
-            $select_donorId_query = "SELECT * FROM `donors` ORDER BY donorId DESC LIMIT 1";
-            $run_select_donorId_query = mysqli_query($con, $select_donorId_query);
-            $donorId_row = mysqli_fetch_assoc($run_select_donorId_query);
-            $donorId = $donorId_row['donorId'];
-            if ($result_query){
-                echo "<script>window.open('../../payment.php?donation_amount=$donation_amount&donorId=$donorId','_self')</script>";
-            }
-        }
-    }
-?>

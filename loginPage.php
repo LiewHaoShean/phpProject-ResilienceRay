@@ -30,7 +30,7 @@
                 </div>
                 <button class="btn btn-white btn-animated" name="org_login">Log in</button>
                 <div class="register">
-                    <p>Don't have an account?  <a href=".\org_area\registration_page\resgisterPage.php">Register</a></p>
+                    <p>Don't have an account?  <a href=".\org_area\registration_page\registerPage.php">Register</a></p>
                 </div>
             </form>
         </div>
@@ -60,12 +60,12 @@
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
                     <h1>Welcome Volunteer!</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo elit at imperdiet dui accumsan sit.</p>
+                    <p>Join us in making a difference by contributing your time and energy to support those in need. Whether you're passionate about community outreach, fundraising, or event planning, there's a role for you. Sign up now to be a part of something meaningful and impactful!</p>
                     <button class="hidden switch-btn" id="organization">Login As Organizations</button>
                 </div>
                 <div class="toggle-panel toggle-right">
                     <h1>Welcome Organzation!</h1>
-                    <p>Pulvinar etiam non quam lacus suspendisse faucibus interdum posuere lorem. Elit duis tristique sollicitudin nibh sit amet.</p>
+                    <p>We are excited to invite you to be a part of our upcoming event, where we aim to make a positive impact in our community.Together, we can create meaningful change and build a brighter future for all.</p>
                     <button class="hidden switch-btn" id="user">Login As User</button>
                 </div>
             </div>
@@ -89,9 +89,9 @@
         $row_count = mysqli_num_rows($results);
         //get the gmail and pass from database
         $row_data = mysqli_fetch_assoc($results);
-        $user_username = $row_data['name'];
-        $user_userId = $row_data['userId'];
         if($row_count > 0){
+            $user_username = $row_data['name'];
+            $user_userId = $row_data['userId'];
             if(password_verify($user_password, $row_data['password'])){
                 $_SESSION['username'] = $user_username;
                 $_SESSION['userId'] = $user_userId;
