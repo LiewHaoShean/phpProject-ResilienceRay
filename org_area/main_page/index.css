@@ -22,9 +22,69 @@ html{
   overflow-x: hidden;
 }
 
-header{
+.top-bar-wrap {
   position: fixed;
   top: 0;
+  background-color: #77d7d3;
+  height: 60px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.top-bar-grid {
+  display: grid;
+  column-gap: 100px;
+  grid-template-columns: auto auto;
+}
+
+.top-bar-grid .top-bar-contact-wrap {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.top-bar-contact-wrap .top-bar-phone-num, .top-bar-contact-wrap .top-bar-gmail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-bar-grid .top-bar-contact-wrap ion-icon {
+  font-size: 2.5rem;
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+.top-bar-grid .top-bar-contact-wrap a {
+  margin-bottom: 2px;
+  font-size: 2.0rem;
+  color: #126360;
+}
+
+.top-bar-grid .top-bar-sosial-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-bar-grid .top-bar-sosial-wrap ion-icon {
+  padding: 20px 10px 0 10px;
+  font-size: 2.5rem;
+}
+
+.top-bar-grid a:hover {
+  color: var(--pink);
+}
+
+.top-bar-grid ion-icon:hover {
+  color: var(--pink);
+}
+
+header{
+  position: fixed;
+  top: 60px;
   left: 0;
   right: 0;
   background-color: #fff;
@@ -189,18 +249,19 @@ section{
 }
 
 .home .content h3{
-  font-size: 6rem;
+  font-size: 4rem;
   color:#333; 
 }
 
 .home .content p{
-  font-size: 2.5rem;
+  padding-top: 20px;
+  font-size: 3.0rem;
   color:#666; 
 }
 
 .button{
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: 20px;
   border-radius: 5rem;
   background:#333;
   color:#fff;
@@ -212,54 +273,109 @@ section{
 .button:hover{
     background:#999
 }
-
-/*footer*/
-.footer .box-container{
-  display:flex;
-  flex-wrap:wrap;
-  gap:1.5rem;
+/* footer */
+.footer{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  background: #222;
+  gap: 3.5rem;
+  left: 0;
+  right: 0; 
+  padding: 40px;
 }
 
-.footer .box-container .box{
-  flex: 1 1 25rem;
+.footer-content .rrlogo{
+  width:250px;
+  height: auto;
 }
 
-.footer .box-container .box h3{
-  color:#333;
-  font-size: 2.5rem;
-  padding: 1rem 0;
+.footer-content h3{
+  color:#eee;
+  margin-bottom: 1.5rem;
+  font-size: 20px;
 }
 
-.footer .box-container .box a{
-  display: block;
-  color:#666;
-  font-size: 1.8rem;
-  padding: 1rem 0;
+.footer-content li{
+  margin-bottom: 16px;
+  list-style: none;
 }
 
-.footer .box-container .box a:hover{
-  color: var(--pink);
-  text-decoration: underline;
+.footer-content.quick-link{
+  display: flex;
+  flex-direction: column;
 }
 
-.footer .box-container .box img{
-  margin-top: 1rem;
+.footer-content.quick-link a{
+  display:block;
+  color:#999;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 10px 0;
 }
 
-.footer .credit{
+.footer-content.quick-link a:hover {
+  color:antiquewhite;
+  transform:translateY(-3px) translateX(-5px);
+}
+
+.footer-content li a{
+  display:block;
+  color:#999;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-content li a:hover{
+  color:antiquewhite;
+  transform:translateY(-3px) translateX(-5px);
+}
+
+.footer-content .contact{
+  position: relative;
+}
+
+.footer-content .contact li{
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  margin-bottom: 16px;
+}
+
+.footer-content .contact li span{
+  font-size: 18px;
+  color:#ccc;
+}
+
+.socialmedia a{
+  display: inline-block;
+  font-size: 22px;
+  color: #eee;
+  margin-right: 15px;
+}
+
+.socialmedia a:hover{
+  color: #999;
+  transform: translateY(-5px);
+}
+
+.copyright{
+  width: 100%;
+  background:#222;
+  padding: 20px 100px 20px;
   text-align: center;
-  font-size: 2rem;
-  padding:1.5rem;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  color:#333;
-  border-top: .1rem solid rgba(0,0,0,.1);
+  font-size: 15px;
+  color:#eee;
+  border-top: 1px solid rgba(229, 231, 233, 0.768);
 }
 
-.footer .credit span{
-  color:var(--pink);
+.copyright span{
+  color:#ffb2d7;
 }
-
 /* media queries */
 @media (max-width: 991px){
 

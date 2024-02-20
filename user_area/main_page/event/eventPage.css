@@ -156,7 +156,7 @@ header .navbar a:hover::after{
   background:transparent;
 }
 
-.search .icon{
+.search .search_icon{
   position: absolute;
   align-items: center;
   left: 25px;
@@ -196,6 +196,34 @@ header .navbar a:hover::after{
   transform: translate(-50%,-50%);
   cursor:pointer;
   color:#999;
+}
+
+.tools{
+  display: flex;
+  position: relative;
+}
+
+.user{
+  position: relative;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  background:#fff;
+  cursor: pointer;
+}
+
+.user:hover{
+  background:#eee;
+}
+
+.user .user_icon{
+  position: absolute;
+  align-items: center;
+  left: 25px;
+  top: 55%;
+  transform: translate(-50%,-50%);
+  font-size: 2.8rem;
+  cursor: pointer;
 }
 
 header .loginbtn{
@@ -506,55 +534,110 @@ transform: translateY(.125rem);
   height: 394;
   object-fit: fill;
 }
+
 /*footer*/
-.footer {
-  background-color: #2e4049;
+.footer{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  background: #222;
+  gap: 3.5rem;
+  left: 0;
+  right: 0; 
+  padding: 40px;
+  
 }
 
-.footer .box-container{
-  display:flex;
-  flex-wrap:wrap;
-  gap:1.5rem;
+.footer-content .rrlogo{
+  width:250px;
+  height: auto;
 }
 
-.footer .box-container .box{
-  flex: 1 1 25rem;
+.footer-content h3{
+  color:#eee;
+  margin-bottom: 1.5rem;
+  font-size: 20px;
 }
 
-.footer .box-container .box h3{
-  color: white;
-  font-size: 2.5rem;
-  padding: 1rem 0;
+.footer-content li{
+  margin-bottom: 16px;
+  list-style: none;
 }
 
-.footer .box-container .box a{
-  display: block;
-  color:white;
-  font-size: 1.8rem;
-  padding: 1rem 0;
+.footer-content.quick-link{
+  display: flex;
+  flex-direction: column;
 }
 
-.footer .box-container .box a:hover{
-  color: var(--pink);
-  text-decoration: underline;
+.footer-content.quick-link a{
+  display:block;
+  color:#999;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 10px 0;
 }
 
-.footer .box-container .box img{
-  margin-top: 1rem;
+.footer-content.quick-link a:hover {
+  color:antiquewhite;
+  transform:translateY(-3px) translateX(-5px);
 }
 
-.footer .credit{
+.footer-content li a{
+  display:block;
+  color:#999;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-content li a:hover{
+  color:antiquewhite;
+  transform:translateY(-3px) translateX(-5px);
+}
+
+.footer-content .contact{
+  position: relative;
+}
+
+.footer-content .contact li{
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  margin-bottom: 16px;
+}
+
+.footer-content .contact li span{
+  font-size: 18px;
+  color:#ccc;
+}
+
+.socialmedia a{
+  display: inline-block;
+  font-size: 22px;
+  color: #eee;
+  margin-right: 15px;
+}
+
+.socialmedia a:hover{
+  color: #999;
+  transform: translateY(-5px);
+}
+
+.copyright{
+  width: 100%;
+  background:#222;
+  padding: 20px 100px 20px;
   text-align: center;
-  font-size: 2rem;
-  padding:1.5rem;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  color: white;
-  border-top: .1rem solid rgba(0,0,0,.1);
+  font-size: 15px;
+  color:#eee;
+  border-top: 1px solid rgba(229, 231, 233, 0.768);
 }
 
-.footer .credit span{
-  color:var(--pink);
+.copyright span{
+  color:#ffb2d7;
 }
 
 /* media queries */

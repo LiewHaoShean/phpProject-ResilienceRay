@@ -220,16 +220,17 @@
         <section class="footer">
 
             <div class="footer-content">
-                <img src="logo/logo.png" class="rrlogo">
+                <img src="./logo.png" class="rrlogo">
             </div>
 
 
-            <div class="footer-content">
+            <div class="footer-content quick-link">
                 <h3>Quick Links</h3>
-                <li><a href="#home">Home</a></li>
-                <li><a href="./donation/donationPage.html">Donations</a></li>
-                <li><a href="#petitions">Petitions</a></li>
-                <li><a href="#events">Events</a></li>
+                <a href="#home">Home</a>
+                <a href="./profile/profile.php">Profile</a>
+                <a href="./donation/donationPage.php">Donations</a>
+                <a href="./petition/petitionPage.php">Petitions</a>
+                <a href="./event/eventPage.php">Events</a>
             </div>
 
             <div class="footer-content">

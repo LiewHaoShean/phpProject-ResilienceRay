@@ -42,21 +42,32 @@
     
         <nav class="navbar">
             <a href="../index.php">Home</a>
-            <a href="#">Profile</a>
             <a href="../donation/donationPage.php">Donations</a>
             <a href="../petition/petitionPage.php">Petitions</a>
             <a href="#events">Events</a>
         </nav>
     
-        <div class="search">
-            <div class="icon">
-                <ion-icon name="search-outline" class="searchbtn md hydrated" role="img" onclick="toggleSearchBar()"></ion-icon>
+        <div class="tools">
+                <div class = "search">
+                    <div class ="search_icon">
+                        <ion-icon name="search-outline" class="searchbtn" onclick="toggleSearchBar()"></ion-icon>
+                    </div>
+                    <div class = "search_bar">
+                        <input type="text" name="search" id="search" placeholder="Search Events" >
+                        <ion-icon name="close-outline" class="closebtn" onclick="clearSearchBar()"></ion-icon>
+                    </div>
+                </div>
+
+                <?php
+                    if (isset($_SESSION['username'])){
+                        echo'<div class="user">
+                                <div class ="user_icon">
+                                    <a href="../profile/profile.php"><ion-icon name="person-outline"></ion-icon></a>
+                                </div>
+                            </div>';
+                    }
+                ?>
             </div>
-            <div class="search_bar">
-                <input type="text" name="search" id="search" placeholder="Search Events">
-                <ion-icon name="close-outline" class="closebtn md hydrated" role="img" onclick="clearSearchBar()"></ion-icon>
-            </div>
-        </div>
     
         <?php
             if (!isset($_SESSION['username'])){

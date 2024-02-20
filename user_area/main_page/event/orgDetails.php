@@ -21,20 +21,31 @@
         
             <nav class="navbar">
                 <a href="../index.php">Home</a>
-                <a href="../profile/profile.php">Profile</a>
-                <a href=".././donation/donationPage.php">Donations</a>
-                <a href="./petitionPage.php">Petitions</a>
-                <a href="#events">Events</a>
+                <a href="../donation/donationPage.php">Donations</a>
+                <a href="../petition/petitionPage.php">Petitions</a>
+                <a href="./eventPage.php">Events</a>
             </nav>
         
-            <div class="search">
-                <div class="icon">
-                    <ion-icon name="search-outline" class="searchbtn md hydrated" role="img" onclick="toggleSearchBar()"></ion-icon>
+            <div class="tools">
+                <div class = "search">
+                    <div class ="search_icon">
+                        <ion-icon name="search-outline" class="searchbtn" onclick="toggleSearchBar()"></ion-icon>
+                    </div>
+                    <div class = "search_bar">
+                        <input type="text" name="search" id="search" placeholder="Search Events" >
+                        <ion-icon name="close-outline" class="closebtn" onclick="clearSearchBar()"></ion-icon>
+                    </div>
                 </div>
-                <div class="search_bar">
-                    <input type="text" name="search" id="search" placeholder="Search Events">
-                    <ion-icon name="close-outline" class="closebtn md hydrated" role="img" onclick="clearSearchBar()"></ion-icon>
-                </div>
+
+                <?php
+                    if (isset($_SESSION['username'])){
+                        echo'<div class="user">
+                                <div class ="user_icon">
+                                    <a href="../profile/profile.php"><ion-icon name="person-outline"></ion-icon></a>
+                                </div>
+                            </div>';
+                    }
+                ?>
             </div>
         
             <?php
@@ -87,7 +98,7 @@
                 while($result_event_query=mysqli_fetch_assoc($run_select_event_query)){
                     $event_name = $result_event_query['title'];
                     $eventId = $result_event_query['eventId'];
-                    echo "<li><a id='event-tag' href='./eventDetails.php?eventId=$eventId'>$event_name</a></li>";
+                    echo "<li><a id='event-tag' style='text-decoration:underline; color:black;' href='./eventDetails.php?eventId=$eventId'>$event_name</a></li>";
                 }   
                 echo                "</ul>
                                 </div>
@@ -99,33 +110,37 @@
         
         <!--footer section starts-->
         <section class="footer">
-            <div class="box-container">
-                <div class="box">
-                    <h3>Quick Links</h3>
-                    <a href="home#">Home</a>
-                    <a href="about#">Profile</a>
-                    <a href="./donation/donationPage.html">Donations</a>
-                    <a href="petitions#">Petitions</a>
-                    <a href="events#">Events</a>
+            <div class="footer-content">
+                <img src="../logo.png" class="rrlogo">
+            </div>
+
+
+            <div class="footer-content quick-link">
+                <h3>Quick Links</h3>
+                <a href="../index.php">Home</a>
+                <a href="../profile/profile.php">Profile</a>
+                <a href="../donation/donationPage.php">Donations</a>
+                <a href="../petition/petitionPage.php">Petitions</a>
+                <a href="./eventPage.php">Events</a>
+            </div>
+
+            <div class="footer-content">
+                <h3>Address</h3>
+                    <li><a href="#">12,217,Technology Park Malaysia, <br>57000 Kuala Lumpur, <br>Federal Territory of Kuala Lumpur</a></li>
+            </div>
+
+            <div class="footer-content">
+                <div class="contact">
+                    <h3>Contact Us</h3>
+                    <li><span><i class="fa-solid fa-phone"></i></span><p><a href="#">+03 1234 8576</a></p></li>
+                    <li><span><i class="fa-solid fa-envelope"></i></span><p><a href="#">resilienceray@gmail.com</a></p></li>
+                    <div class="socialmedia">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
                 </div>
-        
-                <div class="box">
-                    <h3>Address</h3>
-                    <a href="#">12,217,Technology Park Malaysia, 57000 Kuala Lumpur, Federal Territory of Kuala Lumpur</a>
-                </div>
-        
-                <div class="box">
-                    <h3>Email</h3>
-                    <a href="#">resilienceray@gmail.com</a>
-                </div>
-        
-                <div class="box">
-                    <h3>Contact Info</h3>
-                    <a href="#">+03 1234 8576</a>
-                    <img src="#" alt="">
-                </div>
-        
-                <div class="credit">Created by<span> Developers of Resilience Ray </span> | All Rights Reserved</div>
             </div>
         </section>
     <!--footer section ends-->

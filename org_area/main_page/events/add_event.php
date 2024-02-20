@@ -118,7 +118,7 @@
       if($event_name == '' or $event_description == '' or $event_img == ''){
         echo "<script>alert('Please fill in all the available field!')</script>";
       } else {
-        $insert_query = "insert into event(title, description, date_start, time_start, date_end, time_end, location, num_of_participants, organizationId, event_img) values ('$event_name', '$event_description', '$start_date', '$start_time', '$end_date', '$end_time', '$location', '$participants', '$orgId', ?)";
+        $insert_query = "insert into event(title, description, date_start, time_start, date_end, time_end, location, num_of_participants, organizationId, event_img) values ('$event_name', \"$event_description\", '$start_date', '$start_time', '$end_date', '$end_time', '$location', '$participants', '$orgId', ?)";
         $stmt = mysqli_prepare($con, $insert_query);
         mysqli_stmt_bind_param($stmt, "s", $images);
         mysqli_stmt_execute($stmt);

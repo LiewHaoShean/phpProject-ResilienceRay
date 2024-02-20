@@ -91,7 +91,7 @@
                     <a class="" href="profile.php">Edit Account</a>
                 </li>
                 <li class="navbar-item">
-                    <a class="" href="../logout.php">Logout</a>
+                    <a class="" href="../../logout.php">Logout</a>
                 </li>
             </ul>
         </div>
@@ -163,35 +163,43 @@
     </div>
 
     <section class="footer">
-        <div class="box-container">
-            <div class="box">
+
+            <div class="footer-content">
+                <img src="../logo.png" class="rrlogo">
+            </div>
+
+
+            <div class="footer-content quick-link">
                 <h3>Quick Links</h3>
-                <a href="home#">Home</a>
-                <a href="profile#">Profile</a>
-                <a href="donations#">Donations</a>
-                <a href="petitions#">Petitions</a>
-                <a href="events#">Events</a>
+                <a href="#home">Home</a>
+                <a href="./donation/donationPage.php">Donations</a>
+                <a href="./petition/petitionPage.php">Petitions</a>
+                <a href="./event/eventPage.php">Events</a>
             </div>
-    
-            <div class="box">
+
+            <div class="footer-content">
                 <h3>Address</h3>
-                <a href="#">12,217,Technology Park Malaysia, 57000 Kuala Lumpur, Federal Territory of Kuala Lumpur</a>
+                    <li><a href="#">12,217,Technology Park Malaysia, <br>57000 Kuala Lumpur, <br>Federal Territory of Kuala Lumpur</a></li>
             </div>
-    
-            <div class="box">
-                <h3>Email</h3>
-                <a href="#">resilienceray@gmail.com</a>
+
+            <div class="footer-content">
+                <div class="contact">
+                    <h3>Contact Us</h3>
+                    <li><span><i class="fa-solid fa-phone"></i></span><p><a href="#">+03 1234 8576</a></p></li>
+                    <li><span><i class="fa-solid fa-envelope"></i></span><p><a href="#">resilienceray@gmail.com</a></p></li>
+                    <div class="socialmedia">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></i></a>
+                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
             </div>
-    
-            <div class="box">
-                <h3>Contact Info</h3>
-                <a href="#">+03 1234 8576</a>
-                <img src="#" alt="">
-            </div>
-    
-            <div class="credit">Created by<span> Developers of Resilience Ray </span> | All Rights Reserved</div>
+        </section>
+
+        <div class="copyright">
+            <p>Copyright @2024 <span>Developers of Resilience Ray</span> | All Rights Reserved.</p>
         </div>
-    </section>
 </body>
 <script>
     let search = document.querySelector(".searchbtn");

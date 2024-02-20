@@ -83,7 +83,7 @@
           echo "<script>alert('Username or gmail already exist.')</script>";
         } else {
           move_uploaded_file($temp_org_img, "../org_images/$org_img");
-          $insert_query = "INSERT INTO `organization`(`name`, `email_address`, `address`, `contact_num`, `description`, `password`, `organization_img`) VALUES ('$org_name','$org_email','$org_addr','$org_contact','$org_des','$hash_password','$org_img')";
+          $insert_query = "INSERT INTO `organization`(`name`, `email_address`, `address`, `contact_num`, `description`, `password`, `organization_img`) VALUES ('$org_name','$org_email','$org_addr','$org_contact',\"$org_des\",'$hash_password','$org_img')";
           $result_query = mysqli_query($con, $insert_query);
           if ($result_query){
             echo "<script>alert('Data inserted sucessfully!')</script>";

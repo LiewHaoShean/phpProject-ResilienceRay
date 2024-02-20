@@ -25,11 +25,15 @@
             $event_title = $result['title'];
             $event_volunteers = $result['num_of_participants'];
             $event_date = $result['date_start'];
+            $participants_count_query = "Select * from `volunteer` where eventId=$eventId";
+            $run_participants_count_query = mysqli_query($con, $participants_count_query);
+            $row_count = mysqli_num_rows($run_participants_count_query);
+
             echo "
                 <li class='table-row'>
                     <div class='col col-1' data-label='Event Id'><h3>$eventId</h3></div>
                     <div class='col col-2' data-label='Event Type'><h3>$event_title</h3></div>
-                    <div class='col col-3' data-label='Amount'><h3><a id='supporters' href='volunteer_details.php?eventId=$eventId'>$event_volunteers</a></h3></div>
+                    <div class='col col-3' data-label='Amount'><h3><a id='supporters' href='volunteer_details.php?eventId=$eventId'>$row_count</a></h3></div>
                     <div class='col col-4' data-label='Payment Method'><h3>$event_date</h3></div>
                 </li>";
         }

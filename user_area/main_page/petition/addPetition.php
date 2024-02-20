@@ -60,7 +60,7 @@
         echo "<script>alert('Please fill in all the available field!')</script>";
       } else {
         move_uploaded_file($temp_petition_img, "./petition_images/$petition_img");
-        $insert_query = "insert into petition(title, description, targeted_supporters, userId, petition_img, shares) values ('$petition_title', '$petition_description', '$targeted_supporters', '$userId', '$petition_img', '$petition_shares')";
+        $insert_query = "insert into petition(title, description, targeted_supporters, userId, petition_img, shares) values ('$petition_title', \"$petition_description\", '$targeted_supporters', '$userId', '$petition_img', '$petition_shares')";
         $result_query = mysqli_query($con, $insert_query);
         if ($result_query){
           echo "<script>alert('Petition details uploaded sucessfully!')</script>";

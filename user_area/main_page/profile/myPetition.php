@@ -28,7 +28,7 @@
             echo "
                 <li class='table-row'>
                     <div class='col col-1' data-label='Donation Id'><h3>$petitionId</h3></div>
-                    <div class='col col-2' data-label='Donation Type'><h3>$petition_title</h3></div>
+                    <div class='col col-2' data-label='Donation Type'><h3><a style='color:black; text-decoration:underline;' href='../petition/petition_details.php?petitionId=$petitionId'>$petition_title</a></h3></div>
                     <div class='col col-3' data-label='Amount'><h3>$petition_date</h3></div>
                     <div class='col col-4' data-label='Payment Method'><h3>$petition_supporters</h3></div>
                 </li>";
