@@ -45,7 +45,7 @@
             <a href="../profile/profile.php">Profile</a>
             <a href="../donation/donationPage.php">Donations</a>
             <a href="../petition/petitionPage.php">Petitions</a>
-            <a href="#events">Events</a>
+            <a href="../event/eventPage.php">Events</a>
         </nav>
     
         <div class="search">
@@ -270,11 +270,11 @@
         <div class="box-container">
             <div class="box">
                 <h3>Quick Links</h3>
-                <a href="home#">Home</a>
-                <a href="profile#">Profile</a>
-                <a href="donations#">Donations</a>
-                <a href="petitions#">Petitions</a>
-                <a href="events#">Events</a>
+                <a href="../index.php">Home</a>
+                <a href="../profile/profile.php">Profile</a>
+                <a href="#">Donations</a>
+                <a href="../petition/petitionPage.php">Petitions</a>
+                <a href="../event/eventPage.php">Events</a>
             </div>
     
             <div class="box">

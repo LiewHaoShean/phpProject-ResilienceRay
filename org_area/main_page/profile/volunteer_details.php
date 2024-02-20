@@ -108,9 +108,9 @@
                 <div class="col col-6">Contact Number</div>
                 </li>
                 <?php
-                    if(isset($_GET['activityId'])){
-                        $activityId = $_GET['activityId'];
-                        $select_volunteer_query = "Select * from `volunteer` where activityId='$activityId'";
+                    if(isset($_GET['eventId'])){
+                        $eventId = $_GET['eventId'];
+                        $select_volunteer_query = "Select * from `volunteer` where eventId='$eventId'";
                         $run_select_volunteer_query = mysqli_query($con, $select_volunteer_query);
                         while($volunteer_result_query = mysqli_fetch_assoc($run_select_volunteer_query)){
                             $userId = $volunteer_result_query['userId'];

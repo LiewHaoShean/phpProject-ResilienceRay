@@ -92,3 +92,8 @@ function navigatePetitionBtn() {
   const section = document.getElementById('petition');
   section.scrollIntoView({ behavior: 'smooth' });
 }
+
+function navigateEventsBtn() {
+  const section = document.getElementById('event');
+  section.scrollIntoView({ behavior: 'smooth' });
+}

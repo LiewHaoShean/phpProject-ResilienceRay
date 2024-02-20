@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+:root{
+  --pink: #ffb2d7;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none; 
+  transition: .2s linear;
+  font-family:'Ubuntu',sans-serif;
+}
+
+html{
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  overflow-x: hidden;
+}
+
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 2rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: 0 1rem 1.5rem rgba(0,0,0,.1);
+}
+
+header .logo{
+  font-size: 3rem;
+  color: #333;
+  font-weight: bolder;
+}
+
+header .navbar a{
+  font-size: 2rem;
+  padding: 0 1.5rem;
+  color: #666;
+  display: inline-block;
+  position: relative;
+}
+
+header .navbar a:hover{
+  color: var(--pink)
+}
+
+header .navbar a::after{
+  content: '';
+  position: absolute;
+  width: 0;
+  left:0;
+  height: 3px;
+  background: black;
+  border-radius: 5px;
+  bottom:-10px;
+  transition: 0.5s;
+}
+
+header .navbar a:hover::after{
+    width: 100%
+}
+
+.search{
+  position: relative;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  transition: 0.5s;
+  overflow: hidden;
+  background:#fff;
+}
+
+.search:hover{
+  background:#eee;
+}
+
+.search.active{
+  width: 280px;
+  border: 2px solid rgba(0,0,0,.1);
+  border-radius: 50px;
+  background:transparent;
+}
+
+.search .icon{
+  position: absolute;
+  align-items: center;
+  left: 25px;
+  top: 55%;
+  transform: translate(-50%,-50%);
+  font-size: 2.8rem;
+  cursor: pointer;
+}
+
+
+.search .search_bar{
+  position: relative;
+  width: 200px;
+  height: 50px;
+  left: 60px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.search .search_bar input{
+  position: absolute;
+  top: 0;
+  width:100%;
+  height:100%;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+}
+
+.search .search_bar .closebtn{
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  font-size:2.8rem;
+  transform: translate(-50%,-50%);
+  cursor:pointer;
+  color:#999;
+}
+
+header .loginbtn{
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #666;
+  outline: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 2rem;
+  color:#333;
+  margin-left: 40px;
+  transition: 0.2s;
+  padding-left: 35px;
+  padding-top: 10px;
+}
+
+header .loginbtn:hover{
+  background: #eee;
+  color:#ffb2d7
+}
+
+header #toggler{
+  display: none;
+}
+
+header .fa-bars{
+  font-size: 3rem;
+  color:#333;
+  border-radius: .5rem;
+  padding: .5rem 1.5rem;
+  cursor: pointer;
+  border: .1rem solid rgba(0,0,0.3);
+  display: none;
+}
+
+section{
+  padding: 2rem 9%;
+}
+
+.home{
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background: beige;
+  background-size: cover;
+  background-position: center;
+}
+
+.home .content{
+  max-width: 70rem;
+}
+
+.home .content h3{
+  font-size: 6rem;
+  color:#333; 
+}
+
+.home .content p{
+  font-size: 2.5rem;
+  color:#666; 
+}
+
+.button{
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: 5rem;
+  background:#333;
+  color:#fff;
+  padding: .9rem 3.5rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.button:hover{
+    background:#999
+}
+
+.event_details {
+  height: 760px;
+  padding-top: 60px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.left-container {
+  margin: 50px;
+  width: 70%;
+}
+
+.event_details .left-container h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.event_details .left-container img {
+  border-radius: 10px;
+  height: 452px;
+  width: 666px;
+}
+
+.right-container {
+  background-color: whitesmoke;
+  height: 500px;
+  width: 80%;
+  margin-top: 70px;
+  margin-right: 50px;
+}
+
+.right-container .event-statistic {
+  padding: 60px 46px 40px;
+}
+
+.event-statistic .event-data {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: space-evenly;
+  padding: 0 0px;
+}
+
+.event-statistic .event-data h2 {
+  font-size: 2.5rem;
+}
+
+.event-statistic .event-data p {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.event-data .center {
+    text-align: center;
+}
+
+.progress-div {
+  margin: 30px 0px;
+}
+
+.progress-container {
+  width: 100%;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: #000; 
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  transition: width 0.5s ease;
+}
+
+.progress-bar-des {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.progress-bar-des p {
+  font-size: 1.5rem;
+}
+
+.progress-bar-des #total_supporters, .progress-bar-des #targeted_supporters {
+    font-size: 2rem;
+}
+
+.progress-bar-des .volunteer {
+  font-weight: 600;
+}
+
+.event-statistic a {
+  text-decoration: none;
+  display: block;
+  border: solid 2px black;
+  width: 80%;
+  color: black;
+  border-radius: 20px;
+  margin: 40px auto;
+  height: 70px;
+  padding: 20px 25px;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.event-statistic a:hover {
+  color: white;
+  background-color: black;
+}
+
+.event-des-container {
+  width: 100%;
+  padding: 20px 100px;
+
+}
+
+.event-des-container .event-des {
+   width: 100%;
+   border-radius: 20px;
+   background-color: whitesmoke;
+}
+
+.event-des-container .event-des h1 {
+  display: block;
+  font-size: 3rem;
+  text-align: center;
+  margin: 20px;
+  padding-top: 50px;
+}
+
+.event-des-container .event-des .organizer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-des-container .event-des .organizer ion-icon {
+  display: inline-block;
+  font-size: 8rem;
+}
+
+.event-des-container .event-des .organizer h2 {
+  display: inline-block;
+  padding-left: 20px;
+  font-size: 2rem;
+}
+
+.event-des #org-tag {
+  text-decoration: underline;
+}
+
+.event-des-container .event-des p {
+  margin: 20px 50px;
+  font-size: 2rem;
+  text-align: center;
+  padding-bottom: 50px;
+}
+/*footer*/
+.footer {
+  background-color: #2e4049;
+}
+
+.footer .box-container{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1.5rem;
+}
+
+.footer .box-container .box{
+  flex: 1 1 25rem;
+}
+
+.footer .box-container .box h3{
+  color:white;
+  font-size: 2.5rem;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a{
+  display: block;
+  color:white;
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a:hover{
+  color: var(--pink);
+  text-decoration: underline;
+}
+
+.footer .box-container .box img{
+  margin-top: 1rem;
+}
+
+.footer .credit{
+  text-align: center;
+  font-size: 2rem;
+  padding:1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  color:white;
+  border-top: .1rem solid rgba(0,0,0,.1);
+}
+
+.footer .credit span{
+  color:var(--pink);
+}
+
+/* media queries */
+@media (max-width: 991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    header{
+        padding: 2rem;
+    }
+
+    section{
+        padding:2rem;
+    }
+
+    .home{
+        background-position: left;
+
+    }
+}
+
+@media (max-width: 768px){
+
+    header .fa-bars{
+        display:block;
+    }
+
+    header .navbar{
+        position: absolute;
+        top:100%;
+        left:0;
+        right:0;
+        background:#eee;
+        border-top: .1rem solid rgba(0,0,0,.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    header #toggler:checked ~ .navbar{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    header .navbar a{
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background:#fff;
+        border: .1rem solid rgba(0,0,0,.1);
+        display: block;
+    }
+
+    .home .content h3{
+        font-size: 5rem;
+    }
+
+    .home .content p{
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 450px){
+
+    html{
+        font-size: 50%;
+    }
+}

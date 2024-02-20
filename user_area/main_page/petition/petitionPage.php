@@ -1,5 +1,5 @@
 <?php
-    include_once('../connect_sql/connect.php');
+    include('../../../connect_sql/connect.php');
     session_start();
 ?>
 
@@ -25,7 +25,7 @@
                 <a href="../profile/profile.php">Profile</a>
                 <a href="../donation/donationPage.php">Donations</a>
                 <a href="#">Petitions</a>
-                <a href="#events">Events</a>
+                <a href="../event/eventPage.php">Events</a>
             </nav>
         
             <div class="search">
@@ -82,7 +82,6 @@
             <h1>#Petitions</h1>
             <div class="petition-container">
                 <?php
-                    include_once('../../../connect_sql/connect.php');
                     $select_query = "Select * from `petition`";
                     $result = mysqli_query($con, $select_query);
                     while ($row_fetch = mysqli_fetch_assoc($result)){
@@ -190,11 +189,11 @@
             <div class="box-container">
                 <div class="box">
                     <h3>Quick Links</h3>
-                    <a href="home#">Home</a>
-                    <a href="about#">Profile</a>
-                    <a href="donations#">Donations</a>
-                    <a href="petitions#">Petitions</a>
-                    <a href="events#">Events</a>
+                    <a href="../index.php">Home</a>
+                    <a href="../profile/profile.php">Profile</a>
+                    <a href="../donation/donationPage.php">Donations</a>
+                    <a href="#">Petitions</a>
+                    <a href="../event/eventPage.php">Events</a>
                 </div>
         
                 <div class="box">

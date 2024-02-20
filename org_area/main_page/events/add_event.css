@@ -1,0 +1,213 @@
+@import url(https://db.onlinewebfonts.com/c/0a6ee448d1bd65c56f6cf256a7c6f20a?family=Bahnschrift);
+
+*{
+    font-family: 'Bahnschrift';
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    margin: 0;
+}
+
+.add-event{
+    font-size: 80px;
+    text-align: center;
+    margin: 0;
+    height: 60px;
+}
+
+.add-event header {
+    margin: 0;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.container-left {
+    width: 50%;
+    height: 600px;
+}
+
+.container-right {
+    width: 50%;
+    height: 600px;
+}
+
+.container2{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    border: 2px solid black;
+    border-radius: 6px;
+    height: 20%;
+}
+
+.container3{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    border: 2px solid black;
+    border-radius: 6px;
+    height: 60%;
+}
+
+.location-container{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    border: 2px solid black;
+    border-radius: 6px;
+    height: 18.8%;
+}
+
+.container4{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    border: 2px solid black;
+    border-radius: 6px;
+    height: 40%;
+}
+
+.container5{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    border: 2px solid black;
+    border-radius: 6px;
+    height: 40%;
+}
+
+.container6{
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    border: 2px solid black;
+    border-radius: 6px;
+    height: 18.5%;
+}
+
+input[type='text']{
+    width: 97%;
+    padding: 4px;
+    height: 40px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+textarea{
+    width: 97%;
+    padding: 4px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+button{
+    width: 100px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .2s;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+button:hover{
+    color: black;
+}
+
+button::after{
+    content: "";
+    background: gold;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+}
+
+button:hover::after{
+    transform: skewX(-45deg) scale(1, 1);
+}
+
+input[type='date']{
+    width: 97%;
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+input[type='time']{
+    width: 97%;
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+input[type='file']{
+    width: 97%;
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+input[type='text']:focus {
+    border-style: none;
+    outline: none;
+}
+
+textarea {
+    outline: none;
+    border-style: none;
+    border-color: Transparent;
+    overflow: auto;
+    outline: none;
+}
+
+textarea:focus {
+    outline: none;
+    border-style: none;
+    border-color: Transparent;
+    overflow: auto;
+    outline: none;
+}
+
+.addEventBtn {
+    text-align: center;
+    padding-left: 10px;
+}
+
+.addEventBtn button {
+    padding-left: 5px;
+    width: 99.5%;
+}

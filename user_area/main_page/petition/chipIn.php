@@ -66,7 +66,7 @@
                                 <p>People who've already chipped in have helped this petition gather <strong>300 additional signatures.</strong></p>
                             </div>
                             <a href='./addchips.php?petitionId=$petitionId'><ion-icon name='cash-outline'></ion-icon>Yes I'll chip in RM58 to distribute this petition</a>
-                            <a href='./share_petition.html' class='share'><ion-icon name='share-outline'></ion-icon>No I'll share instead</a>
+                            <a href='./share_petition.php?petitionId=$petitionId' class='share'><ion-icon name='share-outline'></ion-icon>No I'll share instead</a>
                         </div>
                         <<div class='right-container'>
                     ";

@@ -22,7 +22,7 @@
             <nav class="navbar">
                 <a href="#home">Home</a>
                 <a href="./profile/profile.php">Profile</a>
-                <a href="">Events</a>
+                <a href="./events/add_event.php">Events</a>
             </nav>
         
             <div class="search">
@@ -73,8 +73,6 @@
                     <h3>Quick Links</h3>
                     <a href="home#">Home</a>
                     <a href="about#">Profile</a>
-                    <a href="./donation/donationPage.html">Donations</a>
-                    <a href="petitions#">Petitions</a>
                     <a href="events#">Events</a>
                 </div>
         

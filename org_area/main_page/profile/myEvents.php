@@ -11,26 +11,26 @@
   <h2>My Events</h2>
   <ul class="responsive-table">
     <li class="table-header">
-      <div class="col col-1">Activity Id</div>
-      <div class="col col-2">Activity title</div>
+      <div class="col col-1">Event Id</div>
+      <div class="col col-2">Event title</div>
       <div class="col col-3">Volunteers</div>
       <div class="col col-4">Date</div>
     </li>
     <?php
         $session_orgId = $_SESSION['orgId'];
-        $select_events_query = "Select * from `activity` where organizationId=$session_orgId";
+        $select_events_query = "Select * from `event` where organizationId=$session_orgId";
         $run_query = mysqli_query($con, $select_events_query);
         while ($result = mysqli_fetch_assoc($run_query)){
-            $activityId = $result['activityId'];
-            $activity_title = $result['title'];
-            $activity_volunteers = $result['num_of_participants'];
-            $activity_date = $result['date'];
+            $eventId = $result['eventId'];
+            $event_title = $result['title'];
+            $event_volunteers = $result['num_of_participants'];
+            $event_date = $result['date_start'];
             echo "
                 <li class='table-row'>
-                    <div class='col col-1' data-label='Donation Id'><h3>$activityId</h3></div>
-                    <div class='col col-2' data-label='Donation Type'><h3>$activity_title</h3></div>
-                    <div class='col col-3' data-label='Amount'><h3><a id='supporters' href='volunteer_details.php?activityId=$activityId'>$activity_volunteers</a></h3></div>
-                    <div class='col col-4' data-label='Payment Method'><h3>$activity_date</h3></div>
+                    <div class='col col-1' data-label='Event Id'><h3>$eventId</h3></div>
+                    <div class='col col-2' data-label='Event Type'><h3>$event_title</h3></div>
+                    <div class='col col-3' data-label='Amount'><h3><a id='supporters' href='volunteer_details.php?eventId=$eventId'>$event_volunteers</a></h3></div>
+                    <div class='col col-4' data-label='Payment Method'><h3>$event_date</h3></div>
                 </li>";
         }
     ?>

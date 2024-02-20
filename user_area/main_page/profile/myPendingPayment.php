@@ -11,10 +11,10 @@
   <h2>My Payment Payment</h2>
   <ul class="responsive-table">
     <li class="table-header">
-      <div class="col">Activity Id</div>
-      <div class="col">Activity Type</div>
-      <div class="col">Amount Due</div>
-      <div class="col">Payment Method</div>
+      <div class="col col-1">Activity Id</div>
+      <div class="col col-2">Activity Type</div>
+      <div class="col col-3">Amount Due</div>
+      <div class="col col-4">Payment Method</div>
     </li>
     <!-- <li class="table-row">
       <div class="col" data-label="Donation Id">42235</div>

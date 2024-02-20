@@ -42,8 +42,8 @@
     
         <nav class="navbar">
             <a href="../index.php">Home</a>
-            <a href="#">Profile</a>
-            <a href="#events">Events</a>
+            <a href="">Profile</a>
+            <a href="../events/add_event.php">Events</a>
         </nav>
     
         <div class="search">

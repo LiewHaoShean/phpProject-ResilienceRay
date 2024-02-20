@@ -99,7 +99,7 @@
                     <a class="" href="profile.php">Edit Account</a>
                 </li>
                 <li class="navbar-item">
-                    <a class="" href="../../logout.php">Logout</a>
+                    <a class="" href="profile.php?my_events">Events</a>
                 </li>
             </ul>
         </div>
@@ -111,7 +111,9 @@
                 include("myPetition.php");
             }elseif(isset($_GET['pending_payment'])){
                 include("myPendingPayment.php");
-            } else {
+            } elseif(isset($_GET['my_events'])){
+                include("myEvents.php");
+            }else {
                 if(isset($_SESSION['userId'])){
                     $session_userId = $_SESSION['userId'];
                     $session_username = $_SESSION['username'];
